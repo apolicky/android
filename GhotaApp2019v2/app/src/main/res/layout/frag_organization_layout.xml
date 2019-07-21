@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/departureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/departure_cz"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/departurePlaceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTextView"
+        android:layout_alignStart="@+id/departureTextView"
+        android:layout_alignLeft="@+id/departureTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/departure_place_string_cz" />
+
+    <TextView
+        android:id="@+id/departureTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departurePlaceTextView"
+        android:layout_alignStart="@+id/departureTextView"
+        android:layout_alignLeft="@+id/departureTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/departure_time_string_cz" />
+
+    <TextView
+        android:id="@+id/departurePlaceValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/departurePlaceTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/departure_place_cz" />
+
+    <TextView
+        android:id="@+id/departureTimeValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/departurePlaceValueTextView"
+        android:layout_alignRight="@+id/departurePlaceValueTextView"
+        android:layout_alignBottom="@+id/departureTimeTextView"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="@string/departure_time_cz" />
+
+    <TextView
+        android:id="@+id/arrivalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTimeTextView"
+        android:layout_alignStart="@+id/departureTimeTextView"
+        android:layout_alignLeft="@+id/departureTimeTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/arrival_cz"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/arrivalPlaceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTextView"
+        android:layout_alignStart="@+id/arrivalTextView"
+        android:layout_alignLeft="@+id/arrivalTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/arrival_place_string_cz" />
+
+    <TextView
+        android:id="@+id/arrivalTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalPlaceTextView"
+        android:layout_alignStart="@+id/arrivalPlaceTextView"
+        android:layout_alignLeft="@id/arrivalPlaceTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/arrival_place_string_cz" />
+
+    <TextView
+        android:id="@+id/arrivalPlaceValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTextView"
+        android:layout_alignTop="@+id/arrivalPlaceTextView"
+        android:layout_alignEnd="@+id/departureTimeValueTextView"
+        android:layout_alignRight="@+id/departureTimeValueTextView"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/arrival_place_cz" />
+
+    <TextView
+        android:id="@+id/arrivalTimeValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/arrivalTimeTextView"
+        android:layout_alignEnd="@+id/arrivalPlaceValueTextView"
+        android:layout_alignRight="@+id/arrivalPlaceValueTextView"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/arrival_time_cz" />
+
+    <TextView
+        android:id="@+id/adressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTimeTextView"
+        android:layout_alignStart="@+id/arrivalTimeTextView"
+        android:layout_alignLeft="@+id/arrivalTimeTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/camp_adress"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/campAdressValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adressTextView"
+        android:layout_alignStart="@+id/adressTextView"
+        android:layout_alignLeft="@+id/adressTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/camp_adress_value" />
+
+    <TextView
+        android:id="@+id/setNotificationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campAdressValueTextView"
+        android:layout_alignStart="@+id/campAdressValueTextView"
+        android:layout_alignLeft="@+id/campAdressValueTextView"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/set_notification_switch" />
+
+    <Switch
+        android:id="@+id/setNotificationSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/setNotificationTextView"
+        android:layout_alignEnd="@+id/arrivalTimeValueTextView"
+        android:layout_alignRight="@+id/arrivalTimeValueTextView"
+        android:layout_alignBottom="@+id/setNotificationTextView"
+        android:layout_marginTop="-4dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="-4dp" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TáborovýZpěvník</string>
+    <string name="getZpevnik">Stáhnout zpěvníky</string>
+    <string name="delZpevnik">Vymazat zpěvníky</string>
+    <string name="download">Stáhnout</string>
+    <string name="delete">Smazat</string>
+
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GhotaApp2019v2</string>
+    <string name="app_title">Ghota 2019</string>
+    <string name="tab_organization">Organizace</string>
+    <string name="tab_contacts">Kontakty</string>
+    <string name="tab_online_photos">Fotky</string>
+    <string name="tab_packing">S sebou</string>
+
+    <string name="departure_cz">ODJEZD</string>
+    <string name="departure_time_cz">11.8.2019 ~13:00~</string>
+    <string name="departure_place_cz">MHD Praha Letňany</string>
+    <string name="departure_place_string_cz">MÍSTO ODJEZDU</string>
+    <string name="departure_time_string_cz">ČAS ODJEZDU</string>
+
+    <string name="arrival_cz">PŘÍJEZD</string>
+    <string name="arrival_time_cz">31.8.2019 ~13:00~</string>
+    <string name="arrival_place_cz">MHD Praha Letňany</string>
+    <string name="arrival_place_string_cz">MÍSTO PŘÍJEZDU</string>
+    <string name="arrival_time_string_cz">ČAS PŘÍJEZDU</string>
+
+    <string name="camp_adress">ADRESA TÁBOŘIŠTĚ</string>
+    <string name="camp_adress_value">Táborová základna DOMINO\nHluboká u Skutče - Březiny\n539 73   Skuteč</string>
+
+    <string name="set_notification_switch">Chci upozornění o odjezdu/příjezdu</string>
+
+</resources>

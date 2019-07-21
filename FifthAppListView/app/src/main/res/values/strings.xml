@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">FifthAppListView</string>
+    <string-array name="items">
+        <item>Mrkev</item>
+        <item>Okurka</item>
+        <item>Ředkev</item>
+    </string-array>
+
+    <string-array name="prices">
+        <item>20 kč</item>
+        <item>17 kč</item>
+        <item>4 kč</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>mrkvička na dobrá očíčka</item>
+        <item>okurka, dieta pro turka</item>
+        <item>ředkivčka, červená kulička</item>
+    </string-array>
+</resources>
