@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Jiri_vstavani</string>
+    <string name="welcome_str">Dobré ráno!</string>
+    <string name="curr_time">Právě je: </string>
+    <string name="button_str">Jsem vzhůru</string>
+    <string name="curr_money_str">Získané kapesné</string>
+
+</resources>

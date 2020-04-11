@@ -6,6 +6,8 @@
     <string name="tab_online_photos">Fotky</string>
     <string name="tab_packing">S sebou</string>
 
+    <!-- Organisation part -->
+
     <string name="departure_cz">ODJEZD</string>
     <string name="departure_time_cz">11.8.2019 ~13:00~</string>
     <string name="departure_place_cz">MHD Praha Letňany</string>
@@ -22,5 +24,34 @@
     <string name="camp_adress_value">Táborová základna DOMINO\nHluboká u Skutče - Březiny\n539 73   Skuteč</string>
 
     <string name="set_notification_switch">Chci upozornění o odjezdu/příjezdu</string>
+
+    <!-- adress -->
+
+    <string name="arrival_geo_location">50.125984,14.515130</string>
+    <string name="departure_geo_location">50.125984,14.515130</string>
+
+    <!-- contacts -->
+
+    <string name="recomendation">Volejte pouze v případě nouze nebo tak :-)</string>
+
+    <string name="first_contact_cz">Nouzový kontakt č.1</string>
+    <string name="second_contact_cz">Nouzový kontakt č.2</string>
+
+    <string name="call_text">Volat</string>
+
+    <string name="first_phone_number">+420776095619</string>
+    <string name="second_phone_number">+420776095619</string>
+
+
+    <!-- Filenames -->
+
+    <string name="notification_indicator_file">notificationindicator</string>
+
+    <!--  Config  -->
+
+    <string name="curr_conf_text">Aktuální konfigurace: </string>
+    <string name="conf_author_text">Autor konfigurace: </string>
+    <string name="choose_conf_title_text">Zvolte konfiguraci</string>
+    <string name="set_config_btn_text">Zvolit konfiguraci</string>
 
 </resources>

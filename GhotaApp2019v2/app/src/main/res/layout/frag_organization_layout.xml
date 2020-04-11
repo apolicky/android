@@ -155,12 +155,12 @@
         android:id="@+id/setNotificationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/campAdressValueTextView"
         android:layout_alignStart="@+id/campAdressValueTextView"
         android:layout_alignLeft="@+id/campAdressValueTextView"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/set_notification_switch" />
 
     <Switch

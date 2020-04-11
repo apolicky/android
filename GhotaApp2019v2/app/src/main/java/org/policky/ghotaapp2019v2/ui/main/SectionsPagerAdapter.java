@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import org.policky.ghotaapp2019v2.Frag_Contacts;
-import org.policky.ghotaapp2019v2.Frag_Online_Photos;
-import org.policky.ghotaapp2019v2.Frag_Organization;
-import org.policky.ghotaapp2019v2.Frag_Packing;
+import org.policky.ghotaapp2019v2.Contacts;
+import org.policky.ghotaapp2019v2.OnlinePhotos;
+import org.policky.ghotaapp2019v2.Organization;
+import org.policky.ghotaapp2019v2.Other;
 import org.policky.ghotaapp2019v2.R;
 
 /**
@@ -36,16 +36,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
-                fragment = new Frag_Organization();
+                fragment = new Organization();
                 break;
             case 1:
-                fragment = new Frag_Contacts();
+                fragment = new Contacts();
                 break;
             case 2:
-                fragment = new Frag_Online_Photos();
+                fragment = new OnlinePhotos();
                 break;
             case 3:
-                fragment = new Frag_Packing();
+                fragment = new Other();
                 break;
 
                 default:
