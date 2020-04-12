@@ -15,7 +15,12 @@ import androidx.fragment.app.Fragment;
 
 public class Contacts extends Fragment {
 
-    Button callFirst, callSecond;
+    private Button callFirst, callSecond;
+    private ConfigManager CM;
+
+    public Contacts(ConfigManager CM_){
+        CM = CM_;
+    }
 
     @Nullable
     @Override
@@ -24,18 +29,21 @@ public class Contacts extends Fragment {
 
         callFirst = (Button) view.findViewById(R.id.callFirstButton);
         callSecond = (Button) view.findViewById(R.id.callSecondButton);
+        final String firstNumber, secondNumber;
+        firstNumber = CM.getValue("first_phone_number");
+        secondNumber = CM.getValue("second_phone_number");
 
         callFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callNumber(Uri.parse("tel:" + getString(R.string.first_phone_number)));
+                callNumber(Uri.parse("tel:" + firstNumber));
             }
         });
 
         callSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callNumber(Uri.parse("tel:" + getString(R.string.second_phone_number)));
+                callNumber(Uri.parse("tel:" + secondNumber));
             }
         });
 

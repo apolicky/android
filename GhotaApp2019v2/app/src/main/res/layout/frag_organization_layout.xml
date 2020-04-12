@@ -13,7 +13,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:text="@string/departure_cz"
+        android:text="@string/departure_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/departure_place_string_cz" />
+        android:text="@string/departure_place_tag_cz" />
 
     <TextView
         android:id="@+id/departureTimeTextView"
@@ -38,7 +38,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/departure_time_string_cz" />
+        android:text="@string/departure_time_tag_cz" />
 
     <TextView
         android:id="@+id/departurePlaceValueTextView"
@@ -50,7 +50,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="0dp"
-        android:text="@string/departure_place_cz" />
+        android:text="@string/unset" />
 
     <TextView
         android:id="@+id/departureTimeValueTextView"
@@ -62,7 +62,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
-        android:text="@string/departure_time_cz" />
+        android:text="@string/unset" />
 
     <TextView
         android:id="@+id/arrivalTextView"
@@ -74,7 +74,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/arrival_cz"
+        android:text="@string/arrival_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -87,7 +87,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/arrival_place_string_cz" />
+        android:text="@string/arrival_place_tag_cz" />
 
     <TextView
         android:id="@+id/arrivalTimeTextView"
@@ -99,7 +99,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/arrival_place_string_cz" />
+        android:text="@string/arrival_time_tag_cz" />
 
     <TextView
         android:id="@+id/arrivalPlaceValueTextView"
@@ -112,7 +112,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:text="@string/arrival_place_cz" />
+        android:text="@string/unset" />
 
     <TextView
         android:id="@+id/arrivalTimeValueTextView"
@@ -124,7 +124,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:text="@string/arrival_time_cz" />
+        android:text="@string/unset" />
 
     <TextView
         android:id="@+id/adressTextView"
@@ -136,7 +136,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/camp_adress"
+        android:text="@string/camp_address_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -149,7 +149,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/camp_adress_value" />
+        android:text="@string/unset" />
 
     <TextView
         android:id="@+id/setNotificationTextView"

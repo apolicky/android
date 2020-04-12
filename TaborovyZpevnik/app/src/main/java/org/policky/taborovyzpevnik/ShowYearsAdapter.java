@@ -53,15 +53,6 @@ public class ShowYearsAdapter extends BaseAdapter {
 
         final String year = years.get(i);
 
-        /*v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, ShowYear.class);
-                intent.putExtra("org.policky.taborovyzpevnik.year", year);
-                context.startActivity(intent);
-            }
-        });
-        */
         return v;
     }
 }

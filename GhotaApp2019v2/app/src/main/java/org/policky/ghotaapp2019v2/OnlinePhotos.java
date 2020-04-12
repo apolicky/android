@@ -28,6 +28,11 @@ public class OnlinePhotos extends Fragment {
     ImageView iV;
     HashSet linksRead;
 
+    private ConfigManager CM;
+
+    public OnlinePhotos(ConfigManager CM_){
+        CM = CM_;
+    }
 
     @Nullable
     @Override

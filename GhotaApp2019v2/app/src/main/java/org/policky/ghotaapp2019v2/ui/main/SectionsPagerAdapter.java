@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import org.policky.ghotaapp2019v2.ConfigManager;
 import org.policky.ghotaapp2019v2.Contacts;
 import org.policky.ghotaapp2019v2.OnlinePhotos;
 import org.policky.ghotaapp2019v2.Organization;
@@ -23,10 +24,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_organization, R.string.tab_contacts, R.string.tab_online_photos, R.string.tab_packing};
     private final Context mContext;
+    private ConfigManager CM;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public SectionsPagerAdapter(Context context, FragmentManager fm, ConfigManager CM_) {
         super(fm);
         mContext = context;
+        CM = CM_;
     }
 
     @Override
@@ -36,16 +39,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
-                fragment = new Organization();
+                fragment = new Organization(CM);
                 break;
             case 1:
-                fragment = new Contacts();
+                fragment = new Contacts(CM);
                 break;
             case 2:
-                fragment = new OnlinePhotos();
+                fragment = new OnlinePhotos(CM);
                 break;
             case 3:
-                fragment = new Other();
+                fragment = new Other(CM);
                 break;
 
                 default:

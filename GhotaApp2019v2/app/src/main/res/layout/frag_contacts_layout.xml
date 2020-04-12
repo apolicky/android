@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/recomendationTextView"
+        android:id="@+id/recommendationTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -13,19 +13,19 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:text="@string/recomendation" />
+        android:text="@string/recommendation" />
 
     <TextView
         android:id="@+id/firstContactTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recomendationTextView"
-        android:layout_alignStart="@+id/recomendationTextView"
-        android:layout_alignLeft="@+id/recomendationTextView"
+        android:layout_below="@+id/recommendationTextView"
+        android:layout_alignStart="@+id/recommendationTextView"
+        android:layout_alignLeft="@+id/recommendationTextView"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/first_contact_cz"
+        android:text="@string/first_contact_tag_cz"
         android:textSize="20sp" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/second_contact_cz"
+        android:text="@string/second_contact_tag_cz"
         android:textSize="20sp" />
 
     <Button
@@ -51,7 +51,7 @@
         android:layout_marginTop="-9dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
-        android:text="@string/call_text" />
+        android:text="@string/call_tag_cz" />
 
     <Button
         android:id="@+id/callSecondButton"
@@ -63,6 +63,6 @@
         android:layout_marginTop="-9dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:text="@string/call_text" />
+        android:text="@string/call_tag_cz" />
 
 </RelativeLayout>

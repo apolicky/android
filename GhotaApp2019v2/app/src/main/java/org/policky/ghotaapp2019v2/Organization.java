@@ -3,7 +3,6 @@ package org.policky.ghotaapp2019v2;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +17,16 @@ import androidx.fragment.app.Fragment;
 import java.io.File;
 import java.io.IOException;
 
+
 public class Organization extends Fragment {
 
-    TextView departureTV, arrivalTV;
+    TextView departurePlaceTextView, arrivalPlaceTextView, departureTimeTextView, arrivalTimeTextView, campAddressTextView;
     Switch notificationSwitch;
+    private ConfigManager CM;
+
+    public Organization(ConfigManager CM_){
+        CM = CM_;
+    }
 
     @Nullable
     @Override
@@ -29,21 +34,28 @@ public class Organization extends Fragment {
 
         View view = inflater.inflate(R.layout.frag_organization_layout, container, false);
 
-        departureTV = (TextView) view.findViewById(R.id.departurePlaceValueTextView);
-        arrivalTV = (TextView) view.findViewById(R.id.arrivalPlaceValueTextView);
+        departurePlaceTextView = (TextView) view.findViewById(R.id.departurePlaceValueTextView);
+        departureTimeTextView = (TextView) view.findViewById(R.id.departureTimeValueTextView);
+        arrivalPlaceTextView = (TextView) view.findViewById(R.id.arrivalPlaceValueTextView);
+        arrivalTimeTextView = (TextView) view.findViewById(R.id.arrivalTimeValueTextView);
+
+        campAddressTextView = (TextView) view.findViewById(R.id.campAdressValueTextView);
+
         notificationSwitch = (Switch) view.findViewById(R.id.setNotificationSwitch);
 
-        departureTV.setOnClickListener(new View.OnClickListener() {
+        initializeTexts();
+
+        departurePlaceTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigate(getLocationUri());
+                navigate(getLocationUri(true));
             }
         });
 
-        arrivalTV.setOnClickListener(new View.OnClickListener() {
+        arrivalPlaceTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigate(getLocationUri());
+                navigate(getLocationUri(false));
             }
         });
 
@@ -59,21 +71,51 @@ public class Organization extends Fragment {
         return view;
     }
 
-    public void navigate(Uri geoLocation) {
-
+    private void navigate(Uri geoLocation) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(geoLocation);
-        System.out.println(geoLocation + " : " + getString(R.string.arrival_geo_location));
         if (intent.resolveActivity(getContext().getPackageManager()) != null) {
             startActivity(intent);
         }
     }
 
-    public Uri getLocationUri(){
-        return Uri.parse("geo:" + getString(R.string.arrival_geo_location) + "?q=" + getString(R.string.arrival_geo_location) + "(" + arrivalTV.getText().toString() +")");
+    // pass true if departure, if arrival pass false.
+    private Uri getLocationUri(boolean departure){
+        String coords;
+        String text = "";
+        if(departure){
+            coords = CM.getValue(getResources().getString(R.string.departure_geo_location));
+            text = CM.getValue(getResources().getString(R.string.departure_place));
+        }
+        else{
+            coords = CM.getValue(getResources().getString(R.string.arrival_geo_location));
+            text = CM.getValue(getResources().getString(R.string.arrival_place));
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("geo:");
+        sb.append(coords);
+        sb.append("?q=");
+        sb.append(coords);
+        sb.append("(");
+        sb.append(text);
+        sb.append(")");
+
+        return Uri.parse(sb.toString());
     }
 
-    public void initializePositionOfSwitch(Switch sw){
+    /**
+     * Initializes texts of TextViews from current config.
+     */
+    private void initializeTexts() {
+        departurePlaceTextView.setText(CM.getValue(getResources().getString(R.string.departure_place)));
+        departureTimeTextView.setText(CM.getValue(getResources().getString(R.string.departure_time)));
+        arrivalPlaceTextView.setText(CM.getValue(getResources().getString(R.string.arrival_place)));
+        arrivalTimeTextView.setText(CM.getValue(getResources().getString(R.string.arrival_time)));
+        campAddressTextView.setText(CM.getValue(getResources().getString(R.string.camp_address_value)));
+    }
+
+    private void initializePositionOfSwitch(Switch sw){
         File rootDir = getContext().getFilesDir();
         boolean isSetNotif = false;
         for(File f : rootDir.listFiles()){
@@ -88,7 +130,7 @@ public class Organization extends Fragment {
 
     }
 
-    public void setPositionOfSwitch(Switch sw, boolean nowChecked){
+    private void setPositionOfSwitch(Switch sw, boolean nowChecked){
         File rootDir = getContext().getFilesDir();
         if(nowChecked){
             File switchIndicator = new File(rootDir.toString() + "/" + getString(R.string.notification_indicator_file));
@@ -108,4 +150,6 @@ public class Organization extends Fragment {
             }
         }
     }
+
+
 }

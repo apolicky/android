@@ -6,6 +6,8 @@ import android.net.Network;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.ArrayMap;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,6 +20,7 @@ import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -27,13 +30,19 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Creates an interface to select configuration for summer camp.
+ */
 public class SelectConfig extends AppCompatActivity {
 
-    TextView curr_conf_text;
+    TextView curr_conf, curr_author;
     ListView config_list_view;
-    Button set_config_btn;
+    Button refresh_conf_btn;
+    File rootDir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +51,22 @@ public class SelectConfig extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
-        curr_conf_text = (TextView) findViewById(R.id.curr_conf_text);
-//        curr_conf_text.setText("ahoj");
+        rootDir = getFilesDir();
 
+        curr_conf = (TextView) findViewById(R.id.curr_conf_value);
+        curr_author = (TextView) findViewById(R.id.conf_author_value);
         config_list_view = (ListView) findViewById(R.id.config_list_view);
-        final ArrayList<String> arrayList = new ArrayList<>();
+        refresh_conf_btn = (Button) findViewById(R.id.refresh_config_btn);
 
-        set_config_btn = (Button) findViewById(R.id.set_config_btn);
-        set_config_btn.setOnClickListener(new View.OnClickListener() {
+        final ArrayList<String> conf_urls = new ArrayList<>();
+
+        refresh_conf_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try{
-                    String possible_confs_html = getPossibleConfigs(arrayList);
-                    parseHREFs(possible_confs_html);
+                    String possible_confs_html = getHTML(getResources().getString(R.string.conf_url));
+                    parseHREFs(conf_urls, possible_confs_html);
+                    listConfs(conf_urls,parseNames(conf_urls));
                 }
                 catch (IOException e){ e.printStackTrace();}
             }
@@ -62,102 +74,66 @@ public class SelectConfig extends AppCompatActivity {
 
     }
 
-    private void parseHREFs(String htmlsite){
-//        System.out.println(htmlsite);
+    /**
+     * Extracts names from urls, gets rid of the extension.
+     * @param conf_urls urls of config files
+     * @return parsed names.
+     */
+    private List<String> parseNames(List<String> conf_urls){
+        ArrayList<String> names = new ArrayList<>();
+        for(String u : conf_urls){
+            String[] parts = u.split("/");
+            String[] name_ext = parts[parts.length - 1].split("\\.");
+            names.add(name_ext[0]);
+        }
+        return names;
+    }
 
-        String[] parts = htmlsite.split("\n");
-        ArrayList<String> new_parts = new ArrayList<>();
 
-        for(String part : parts){
-            if(!part.isEmpty()){
-                if(part.contains("href=\"/apolicky/java")) {
-                    new_parts.add(part);
+    /**
+     * Inflates config_list_view with conf_names.
+     * @param conf_urls urls to configurations.
+     * @param conf_names names of configurations.
+     */
+    private void listConfs(List conf_urls, List conf_names){
+        SelectConfigAdapter sca = new SelectConfigAdapter(getApplicationContext(),getFilesDir(),conf_urls,conf_names);
+        config_list_view.setAdapter(sca);
+    }
+
+    /**
+     * In 'confs' inserts parsed urls where configuration files are located.
+     * @param confs list of strings where configuration files are located.
+     * @param htmlsite html of site that is to be parsed.
+     */
+    private void parseHREFs(List confs, String htmlsite){
+
+        String[] parts = htmlsite.split(" ");
+
+        String cont = getResources().getString(R.string.conf_contains);
+        String cont_inner = getResources().getString(R.string.conf_contains_inner);
+        String git_raw = getResources().getString(R.string.git_raw_pref);
+
+        for(String part : parts) {
+            if (!part.isEmpty()) {
+                if (part.contains(cont)) {
+                    String[] p = part.split("\"");
+                    for (String p_ : p) {
+                        if (p_.contains(cont_inner)) {
+                            confs.add(git_raw + p_.replace("/blob/", "/"));
+                        }
+                    }
                 }
             }
         }
-
-        for(String part : new_parts){
-            System.out.println(part);
-        }
-
-
-
-        System.out.println(htmlsite);
     }
 
-    String githubRawPref = "https://raw.githubusercontent.com/";
-
-    private String getPossibleConfigs(ArrayList<String> confs) throws IOException{
-        String result = null;
-//        String dbURLString = "http://policky.org/android/tabor/askquery.php";
-
-        URL url = new URL("https://github.com/apolicky/ghota_web_19/tree/master/kids");
-        try(BufferedReader BR = new BufferedReader(new InputStreamReader(url.openStream()))) {
-            String line;
-            StringBuilder sb = new StringBuilder();
-            while ((line = BR.readLine()) != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-            }
-            result = sb.toString();
-//            curr_conf_text.setText(result);
-        }
-
-        return result;
-//        parseHREFs(result);
-
-
-
-
-
-
-//        try {
-//            URL dbURL = new URL(dbURLString);
-//            HttpURLConnection httpURLConnection = (HttpURLConnection) dbURL.openConnection();
-//            httpURLConnection.setRequestMethod("POST");
-//            httpURLConnection.setDoOutput(true);
-//            httpURLConnection.setDoInput(true);
-//
-//            BufferedWriter BW = new BufferedWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(),"UTF-8"));
-//            String postData = URLEncoder.encode("qry","UTF-8") + "=" + URLEncoder.encode("SELECT rok FROM years","UTF-8");
-//
-//            BW.write(postData);
-//            BW.flush();
-//            BW.close();
-//
-//            BufferedReader BR = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(),"iso-8859-1"));
-//
-//            StringBuilder SB = new StringBuilder();
-//            String line = "";
-//            while ((line = BR.readLine()) != null){
-//                SB.append(line).append("\n");
-//            }
-//
-//            BR.close();
-//
-//            result = SB.toString();
-//
-//            httpURLConnection.disconnect();
-//
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            JSONArray jsonArray = new JSONArray(result);
-//            confs = new ArrayList<>();
-//
-//            for(int i = 0; i < jsonArray.length(); i++){
-//                confs.add(jsonArray.getJSONObject(i).getString("rok"));
-//            }
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-
+    /**
+     * Downloads html page from 'url'
+     * @param url the url of html page.
+     * @return the page in html format.
+     * @throws IOException throws when url is malformed.
+     */
+    private String getHTML(String url) throws IOException {
+        return HTMLDownloader.getPage(url);
     }
 }
