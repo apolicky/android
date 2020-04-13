@@ -8,11 +8,11 @@
 		"contacts" : [
 			{ 
 				"name" : "adam nove",
-				"number" : "776095619"
+				"value" : "776095619"
 			},
 			{ 
 				"name" : "adam stare",
-				"number" :" 720311058"
+				"value" :" 720311058"
 			}
 		]
 	}	

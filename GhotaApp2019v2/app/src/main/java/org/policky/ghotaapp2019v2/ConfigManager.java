@@ -139,13 +139,12 @@ public class ConfigManager {
         }
     }
 
-    public ArrayMap<String,String> getValues(String tag){
+    public ArrayMap<String,String> getValuesMap(String tag){
         ArrayMap<String,String> values = new ArrayMap<>();
         try{
             JSONArray ja = json_res.getJSONArray(tag);
             for(int i = 0; i < ja.length(); i++){
-               ja.getJSONObject(i).
-                values.add(ja.getString(i));
+                values.put(ja.getJSONObject(i).getString("name"),ja.getJSONObject(i).getString("value"));
             }
             return values;
         }
