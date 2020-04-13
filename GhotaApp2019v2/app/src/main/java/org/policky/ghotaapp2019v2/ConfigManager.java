@@ -139,6 +139,22 @@ public class ConfigManager {
         }
     }
 
+    public ArrayMap<String,String> getValues(String tag){
+        ArrayMap<String,String> values = new ArrayMap<>();
+        try{
+            JSONArray ja = json_res.getJSONArray(tag);
+            for(int i = 0; i < ja.length(); i++){
+               ja.getJSONObject(i).
+                values.add(ja.getString(i));
+            }
+            return values;
+        }
+        catch (JSONException e){
+            values.clear();
+            return values;
+        }
+    }
+
     public boolean isConfigLoaded(){
         return config_loaded;
     }
