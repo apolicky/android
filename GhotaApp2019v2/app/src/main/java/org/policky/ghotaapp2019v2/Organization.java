@@ -71,6 +71,17 @@ public class Organization extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        reloadConfig();
+    }
+
+    private void reloadConfig(){
+        CM.reloadConfig();
+        initializeTexts();
+    }
+
     private void navigate(Uri geoLocation) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(geoLocation);

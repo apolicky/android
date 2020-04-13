@@ -49,7 +49,7 @@ public class ContactsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View v = (View) mInflater.inflate(R.layout.select_config_l, null);
+        View v = (View) mInflater.inflate(R.layout.contacts_adapter_l, null);
 
         contact_used = i;
 

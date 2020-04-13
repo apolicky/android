@@ -125,8 +125,8 @@ public class ConfigManager {
     }
 
     public List<String> getValues(String tag){
+        ArrayList<String> values = new ArrayList<>();
         try{
-            ArrayList<String> values = new ArrayList<>();
             JSONArray ja = json_res.getJSONArray(tag);
             for(int i = 0; i < ja.length(); i++){
                 values.add(ja.getString(i));
@@ -134,7 +134,8 @@ public class ConfigManager {
             return values;
         }
         catch (JSONException e){
-            return null;
+            values.clear();
+            return values;
         }
     }
 

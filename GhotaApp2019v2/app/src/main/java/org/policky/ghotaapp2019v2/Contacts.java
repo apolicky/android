@@ -34,10 +34,10 @@ public class Contacts extends Fragment {
         View view = inflater.inflate(R.layout.frag_contacts_layout, container, false);
 
         contactListView = (ListView) view.findViewById(R.id.contacts_list_view);
-        contactListView.setAdapter(new ContactsAdapter(
-                getContext(),
+        ContactsAdapter ca = new ContactsAdapter(getContext(),
                 CM.getValues(getResources().getString(R.string.contact_names)),
-                CM.getValues(getResources().getString(R.string.contact_numbers))));
+                CM.getValues(getResources().getString(R.string.contact_numbers)));
+        contactListView.setAdapter(ca);
 
         return view;
     }

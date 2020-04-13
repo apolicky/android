@@ -52,18 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // delete ---
-//        String path = getFilesDir() + "/" + getResources().getString(R.string.conf_filename_json);
-//        try(FileOutputStream FOS = new FileOutputStream(new File(path))){
-//            String json_conf = "{ \"resources\" : { \"app_title\" : \"Tabor 2020\", \"conf_author\" : \"Vašek Pokus\" }}";
-//            FOS.write(json_conf.getBytes());
-//        }
-//        catch (IOException e){
-//            e.printStackTrace();
-//        }
-
-        // -------
-
 
         rootDir = getFilesDir();
 
@@ -71,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
             goToSelectConfig();
             CM.reloadConfig();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        reloadConfig();
+    }
+
+    private void reloadConfig(){
+        CM.reloadConfig();
     }
 
     /**
