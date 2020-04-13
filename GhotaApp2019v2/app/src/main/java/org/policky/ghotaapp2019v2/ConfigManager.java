@@ -119,7 +119,8 @@ public class ConfigManager {
 
     public String getValue(String tag){
         try{
-            return json_res.getString(tag);
+            String s = json_res.getString(tag);
+            return s;
         }
         catch (JSONException e){
             return c.getResources().getString(R.string.unset);

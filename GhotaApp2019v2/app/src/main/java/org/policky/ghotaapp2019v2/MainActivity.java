@@ -18,6 +18,8 @@ import android.view.View;
 import org.policky.ghotaapp2019v2.ui.main.SectionsPagerAdapter;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        // set new app title.
-//        setTitle(CM.getValue(getResources().getString(R.string.app_title)));
-
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
                 goToSelectConfig();
             }
         });
+
+        // delete ---
+        String path = getFilesDir() + "/" + getResources().getString(R.string.conf_filename_json);
+        try(FileOutputStream FOS = new FileOutputStream(new File(path))){
+            String json_conf = "{ \"resources\" : { \"app_title\" : \"Tabor 2020\", \"conf_author\" : \"Vašek Pokus\" }}";
+            FOS.write(json_conf.getBytes());
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        // -------
+
 
         rootDir = getFilesDir();
 
