@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateConfig">
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ins_departure_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintStart_toStartOf="@+id/create_departure_date_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_departure_date_text_view" />
+
+            <EditText
+                android:id="@+id/ins_camp_name_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintStart_toStartOf="@+id/create_camp_name_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_camp_name_text_view" />
+
+            <EditText
+                android:id="@+id/ins_conf_author_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintStart_toStartOf="@+id/create_conf_author_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_conf_author_text_view" />
+
+            <EditText
+                android:id="@+id/ins_conf_name_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/create_conf_name_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_conf_name_text_view" />
+
+            <EditText
+                android:id="@+id/ins_departure_time_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="time"
+                app:layout_constraintStart_toStartOf="@+id/create_departure_time_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_departure_time_text_view" />
+
+            <EditText
+                android:id="@+id/ins_arrival_date_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="date"
+                android:text="Name"
+                app:layout_constraintStart_toStartOf="@+id/create_arrival_date_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_arrival_date_text_view" />
+
+            <EditText
+                android:id="@+id/ins_arrival_time_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="time"
+                app:layout_constraintStart_toStartOf="@+id/create_arrival_time_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_arrival_time_text_view" />
+
+            <EditText
+                android:id="@+id/ins_camp_address_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toStartOf="@+id/create_camp_address_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_camp_address_text_view" />
+
+            <TextView
+                android:id="@+id/sel_conf_available_conf_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/create_conf_name_tag_cz"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_conf_author_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_conf_author_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_conf_name_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_conf_name_edit_text" />
+
+            <TextView
+                android:id="@+id/create_departure_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_departure_date_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_camp_name_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_camp_name_edit_text" />
+
+            <TextView
+                android:id="@+id/create_departure_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_departure_time_tag_cz"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ins_departure_date"
+                app:layout_constraintTop_toBottomOf="@+id/ins_departure_date"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/create_arrival_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_arrival_date_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_departure_time_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_departure_time_edit_text" />
+
+            <TextView
+                android:id="@+id/create_arrival_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_arrival_time_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_arrival_date_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_arrival_date_edit_text" />
+
+            <TextView
+                android:id="@+id/create_camp_address_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_camp_address_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_arrival_time_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_arrival_time_edit_text" />
+
+            <TextView
+                android:id="@+id/create_first_contact_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/ins_camp_address_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_camp_address_edit_text" />
+
+            <TextView
+                android:id="@+id/create_camp_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_app_title_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/ins_conf_author_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/ins_conf_author_edit_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

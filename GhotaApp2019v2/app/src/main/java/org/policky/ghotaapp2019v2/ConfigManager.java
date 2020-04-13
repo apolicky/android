@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.ArrayMap;
 import android.view.View;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
@@ -16,6 +17,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -57,14 +60,6 @@ public class ConfigManager {
 
             config_loaded = true;
 
-//            for (int i = 0; i < node_list.getLength(); i++) {
-//
-//                Node node = node_list.item(i);
-//                if (node.getNodeType() == Node.ELEMENT_NODE) {
-//                    Element element2 = (Element) node;
-//                }
-//            }
-
         } catch (Exception e) {
             e.printStackTrace();
             config_loaded = false;
@@ -82,9 +77,11 @@ public class ConfigManager {
             new String(buffer, "UTF-8");
             JSONObject reader = new JSONObject(new String(buffer, "UTF-8"));
             json_res = reader.getJSONObject("resources");
+            config_loaded = true;
         }
         catch (IOException | JSONException e){
             e.printStackTrace();
+            config_loaded = false;
         }
     }
 
@@ -127,12 +124,27 @@ public class ConfigManager {
         }
     }
 
+    public List<String> getValues(String tag){
+        try{
+            ArrayList<String> values = new ArrayList<>();
+            JSONArray ja = json_res.getJSONArray(tag);
+            for(int i = 0; i < ja.length(); i++){
+                values.add(ja.getString(i));
+            }
+            return values;
+        }
+        catch (JSONException e){
+            return null;
+        }
+    }
+
     public boolean isConfigLoaded(){
         return config_loaded;
     }
 
     public void reloadConfig(){
         loadConfigDocumentXML();
+        loadConfigDocumentJSON();
     }
 
 }

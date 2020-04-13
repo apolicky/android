@@ -3,11 +3,11 @@
 
     <string name="unset">Unset</string>
 
-<!--    <string name="app_title">Ghota 2019</string>-->
-<!--    <string name="tab_organization">Organizace</string>-->
-<!--    <string name="tab_contacts">Kontakty</string>-->
-<!--    <string name="tab_online_photos">Fotky</string>-->
-<!--    <string name="tab_packing">S sebou</string>-->
+    <!--    <string name="app_title">Ghota 2019</string>-->
+    <!--    <string name="tab_organization">Organizace</string>-->
+    <!--    <string name="tab_contacts">Kontakty</string>-->
+    <!--    <string name="tab_online_photos">Fotky</string>-->
+    <!--    <string name="tab_packing">S sebou</string>-->
 
     <string name="app_title">app_title</string>
     <string name="tab_organization">Organizace</string>
@@ -25,8 +25,8 @@
     <string name="departure_time_tag_cz">ČAS ODJEZDU</string>
 
     <string name="arrival_tag_cz">PŘÍJEZD</string>
-<!--    <string name="arrival_time">31.8.2019 ~13:00~</string>-->
-<!--    <string name="arrival_place">MHD Praha Letňany</string>-->
+    <!--    <string name="arrival_time">31.8.2019 ~13:00~</string>-->
+    <!--    <string name="arrival_place">MHD Praha Letňany</string>-->
     <string name="arrival_time">arrival_time</string>
     <string name="arrival_place">arrival_place</string>
     <string name="arrival_place_tag_cz">MÍSTO PŘÍJEZDU</string>
@@ -34,14 +34,14 @@
 
     <string name="camp_address_tag_cz">ADRESA TÁBOŘIŠTĚ</string>
     <string name="camp_address_value">camp_address_value</string>
-<!--    <string name="camp_address_value">Táborová základna DOMINO\nHluboká u Skutče - Březiny\n539 73   Skuteč</string>-->
+    <!--    <string name="camp_address_value">Táborová základna DOMINO\nHluboká u Skutče - Březiny\n539 73   Skuteč</string>-->
 
     <string name="set_notification_switch">Chci upozornění o odjezdu/příjezdu</string>
 
     <!-- adress -->
 
-<!--    <string name="arrival_geo_location">50.125984,14.515130</string>-->
-<!--    <string name="departure_geo_location">50.125984,14.515130</string>-->
+    <!--    <string name="arrival_geo_location">50.125984,14.515130</string>-->
+    <!--    <string name="departure_geo_location">50.125984,14.515130</string>-->
 
     <string name="arrival_geo_location">arrival_geo_location</string>
     <string name="departure_geo_location">departure_geo_location</string>
@@ -50,13 +50,13 @@
 
     <string name="recommendation">Volejte pouze v případě nouze nebo tak :-)</string>
 
-    <string name="first_contact_tag_cz">Nouzový kontakt č.1</string>
-    <string name="second_contact_tag_cz">Nouzový kontakt č.2</string>
+    <string name="contact_names">contact_names</string>
+    <string name="contact_numbers">contact_numbers</string>
 
     <string name="call_tag_cz">Volat</string>
 
-<!--    <string name="first_phone_number">+420776095619</string>-->
-<!--    <string name="second_phone_number">+420776095619</string>-->
+    <!--    <string name="first_phone_number">+420776095619</string>-->
+    <!--    <string name="second_phone_number">+420776095619</string>-->
 
     <string name="first_phone_number">first_phone_number</string>
     <string name="second_phone_number">second_phone_number</string>
@@ -70,12 +70,16 @@
 
     <string name="curr_conf_text">Aktuální konfigurace: </string>
     <string name="conf_author_text">Autor konfigurace: </string>
+    <string name="available_confs_text">Dostupné konfigurace</string>
+    <string name="set_config_btn_text">Zvolit konfiguraci</string>
+    <string name="refresh_conf_btn_text">Nahrát dostupné</string>
+    <string name="reload_conf_btn_text">Aktualizovat</string>
+    <string name="dont_see_your_conf_text">Nevidíte svou konfiguraci?</string>
+    <string name="create_conf_btn_text">Vytvořit konfiguraci</string>
 
     <string name="conf_name">conf_name</string>
     <string name="conf_author">conf_author</string>
 
-    <string name="choose_conf_title_text">Zvolte konfiguraci</string>
-    <string name="set_config_btn_text">Zvolit konfiguraci</string>
 
     <!--  config files location  -->
     <string name="conf_url">https://github.com/apolicky/android/tree/master/SummerCampConfs</string>
@@ -83,9 +87,22 @@
     <string name="conf_contains_inner">/apolicky/android/</string>
     <string name="git_raw_pref">https://raw.githubusercontent.com</string>
 
-    <string name="refresh_conf_btn_text">Aktualizovat</string>
-
     <string name="conf_filename">config.xml</string>
     <string name="conf_filename_json">config.json</string>
+
+    <!--  CREATE CONFIG  -->
+    <string name="create_conf_name_tag_cz">Název konfigurace</string>
+    <string name="create_conf_author_tag_cz">Autor konfigurace</string>
+    <string name="create_app_title_tag_cz">Název tábora</string>
+    <string name="create_departure_date_tag_cz">Datum odjezdu</string>
+    <string name="create_departure_time_tag_cz">Čas odjezdu</string>
+    <string name="create_arrival_date_tag_cz">Datum příjezdu</string>
+    <string name="create_arrival_time_tag_cz">Čas příjezdu</string>
+    <string name="create_camp_address_tag_cz">Adresa tábořiště</string>
+    <string name="create_first_contact_tag_cz">Nouzový kontakt č.1</string>
+    <string name="create_second_contact_tag_cz">Nouzový kontakt č.2</string>
+
+
+
 
 </resources>

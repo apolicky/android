@@ -2,6 +2,7 @@ package org.policky.ghotaapp2019v2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Network;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,10 +40,14 @@ import java.util.Scanner;
  */
 public class SelectConfig extends AppCompatActivity {
 
-    TextView curr_conf, curr_author;
-    ListView config_list_view;
-    Button refresh_conf_btn;
-    File rootDir;
+    private TextView curr_conf, curr_author;
+    private ListView config_list_view;
+    private Button refresh_available_conf_btn, reload_conf_btn, create_conf_btn;
+    private File rootDir;
+
+    private ConfigManager CM;
+
+    private ArrayList<String> conf_urls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,27 +56,52 @@ public class SelectConfig extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
+        CM = new ConfigManager(getApplicationContext());
         rootDir = getFilesDir();
 
         curr_conf = (TextView) findViewById(R.id.curr_conf_value);
         curr_author = (TextView) findViewById(R.id.conf_author_value);
         config_list_view = (ListView) findViewById(R.id.config_list_view);
-        refresh_conf_btn = (Button) findViewById(R.id.refresh_config_btn);
+        refresh_available_conf_btn = (Button) findViewById(R.id.refresh_config_btn);
+        reload_conf_btn = (Button) findViewById(R.id.reload_config_btn);
+        create_conf_btn = (Button) findViewById(R.id.create_conf_btn);
 
-        final ArrayList<String> conf_urls = new ArrayList<>();
+        reloadConfig();
 
-        refresh_conf_btn.setOnClickListener(new View.OnClickListener() {
+        conf_urls = new ArrayList<>();
+
+        reload_conf_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
-                    String possible_confs_html = getHTML(getResources().getString(R.string.conf_url));
-                    parseHREFs(conf_urls, possible_confs_html);
-                    listConfs(conf_urls,parseNames(conf_urls));
-                }
-                catch (IOException e){ e.printStackTrace();}
+                reloadConfig();
             }
         });
 
+        refresh_available_conf_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAvailableConfigs();
+            }
+        });
+
+        create_conf_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createConfig();
+            }
+        });
+
+    }
+
+    private void createConfig(){
+        Intent createConfigIntent = new Intent(getApplicationContext(),CreateConfig.class);
+        startActivity(createConfigIntent);
+    }
+
+    private void reloadConfig(){
+        CM.reloadConfig();
+        curr_author.setText(CM.getValue(getResources().getString(R.string.conf_author)));
+        curr_conf.setText(CM.getValue(getResources().getString(R.string.conf_name)));
     }
 
     /**
@@ -88,7 +118,6 @@ public class SelectConfig extends AppCompatActivity {
         }
         return names;
     }
-
 
     /**
      * Inflates config_list_view with conf_names.
@@ -135,5 +164,14 @@ public class SelectConfig extends AppCompatActivity {
      */
     private String getHTML(String url) throws IOException {
         return HTMLDownloader.getPage(url);
+    }
+
+    private void showAvailableConfigs(){
+        try{
+            String possible_confs_html = getHTML(getResources().getString(R.string.conf_url));
+            parseHREFs(conf_urls, possible_confs_html);
+            listConfs(conf_urls,parseNames(conf_urls));
+        }
+        catch (IOException e){ e.printStackTrace();}
     }
 }

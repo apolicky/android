@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/sel_conf_available_conf_text_view"
+        android:id="@+id/cont_ada_cont_name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,16 +17,16 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/sel_conf_set_config_btn"
+        android:id="@+id/cont_ada_call_cont_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/sel_conf_available_conf_text_view"
-        android:layout_alignBottom="@+id/sel_conf_available_conf_text_view"
+        android:layout_alignTop="@+id/cont_ada_cont_name_text_view"
+        android:layout_alignBottom="@+id/cont_ada_cont_name_text_view"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="-8dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="-8dp"
-        android:text="@string/set_config_btn_text" />
+        android:text="@string/call_tag_cz"/>
 </RelativeLayout>

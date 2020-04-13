@@ -50,14 +50,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="119dp" />
+        app:layout_constraintGuide_begin="148dp" />
 
     <TextView
-        android:id="@+id/choose_conf_title"
+        android:id="@+id/available_confs_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/choose_conf_title_text"
+        android:text="@string/available_confs_text"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/conf_author_text"
@@ -68,7 +68,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="100dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_end="71dp" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/set_config_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/set_config_btn_text"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/guideline2" />-->
 
     <ListView
         android:id="@+id/config_list_view"
@@ -84,24 +95,42 @@
 
     </ListView>
 
-<!--    <Button-->
-<!--        android:id="@+id/set_config_btn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/set_config_btn_text"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/guideline2" />-->
-
     <Button
         android:id="@+id/refresh_config_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:text="@string/refresh_conf_btn_text"
-        app:layout_constraintBottom_toBottomOf="@+id/choose_conf_title"
+        app:layout_constraintBottom_toBottomOf="@+id/available_confs_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/choose_conf_title" />
+        app:layout_constraintTop_toTopOf="@+id/available_confs_text_view" />
+
+    <Button
+        android:id="@+id/reload_config_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/reload_conf_btn_text"
+        app:layout_constraintBottom_toTopOf="@+id/refresh_config_btn"
+        app:layout_constraintEnd_toEndOf="@+id/refresh_config_btn"
+        app:layout_constraintTop_toBottomOf="@+id/conf_author_value" />
+
+    <TextView
+        android:id="@+id/dont_see_your_conf_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dont_see_your_conf_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/curr_conf_text"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/create_conf_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_conf_btn_text"
+        app:layout_constraintBottom_toBottomOf="@+id/dont_see_your_conf_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/refresh_config_btn"
+        app:layout_constraintTop_toTopOf="@+id/dont_see_your_conf_text_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

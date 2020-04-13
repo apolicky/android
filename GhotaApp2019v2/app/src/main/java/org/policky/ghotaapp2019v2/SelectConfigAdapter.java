@@ -1,11 +1,9 @@
 package org.policky.ghotaapp2019v2;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -52,16 +50,15 @@ public class SelectConfigAdapter extends BaseAdapter {
 
         file_used = i;
 
-        final TextView conf_name_text_view = (TextView) v.findViewById(R.id.conf_name_text_view);
+        final TextView conf_name_text_view = (TextView) v.findViewById(R.id.sel_conf_available_conf_text_view);
         conf_name_text_view.setText(config_names.get(i));
 
-        Button set_conf_btn = (Button) v.findViewById(R.id.set_config_btn);
+        Button set_conf_btn = (Button) v.findViewById(R.id.sel_conf_set_config_btn);
 
         set_conf_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setConfiguration();
-                ((Activity) context).finish();
             }
         });
 
@@ -74,7 +71,7 @@ public class SelectConfigAdapter extends BaseAdapter {
      * Saves it as configuration file that will be used from now on.
      */
     private void setConfiguration(){
-        String file_name = rootDir + "/" + context.getResources().getString(R.string.conf_filename);
+        String file_name = rootDir + "/" + context.getResources().getString(R.string.conf_filename_json);
         ConfigManager.saveConfiguration(file_name, configs_urls.get(file_used));
     }
 }

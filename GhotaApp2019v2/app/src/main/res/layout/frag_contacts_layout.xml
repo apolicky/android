@@ -11,58 +11,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/recommendation" />
 
-    <TextView
-        android:id="@+id/firstContactTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ListView
+        android:id="@+id/contacts_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/recommendationTextView"
-        android:layout_alignStart="@+id/recommendationTextView"
-        android:layout_alignLeft="@+id/recommendationTextView"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/first_contact_tag_cz"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/secondContactTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/firstContactTextView"
-        android:layout_alignStart="@+id/firstContactTextView"
-        android:layout_alignLeft="@+id/firstContactTextView"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/second_contact_tag_cz"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/callFirstButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/firstContactTextView"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-9dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="@string/call_tag_cz" />
-
-    <Button
-        android:id="@+id/callSecondButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/secondContactTextView"
-        android:layout_alignEnd="@+id/callFirstButton"
-        android:layout_alignRight="@+id/callFirstButton"
-        android:layout_marginTop="-9dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:text="@string/call_tag_cz" />
+        android:layout_marginBottom="0dp" />
 
 </RelativeLayout>
