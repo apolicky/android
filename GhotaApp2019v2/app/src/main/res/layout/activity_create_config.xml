@@ -1,194 +1,493 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
     tools:context=".CreateConfig">
 
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/create_conf_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_conf_name_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/create_developer_title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_developer_title_text_view" />
 
-            <EditText
+        <TextView
+            android:id="@+id/create_conf_author_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_conf_author_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <TextView
+            android:id="@+id/create_departure_date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_departure_date_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+        <TextView
+            android:id="@+id/create_departure_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_departure_time_tag_cz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/create_arrival_date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_arrival_date_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+
+        <TextView
+            android:id="@+id/create_arrival_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_arrival_time_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+
+        <TextView
+            android:id="@+id/create_camp_address_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_camp_address_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+        <TextView
+            android:id="@+id/create_contacts_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contacts_title_cz"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+        <TextView
+            android:id="@+id/create_camp_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_app_title_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_organization_title_text_view" />
+
+        <TextView
+            android:id="@+id/create_developer_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/create_developer_title_cz"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/create_organization_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_organization_title_cz"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+        <TextView
+            android:id="@+id/create_contact_info_text_view"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact_info_cz"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
+            app:layout_constraintStart_toStartOf="@+id/create_contacts_title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contacts_title_text_view" />
+
+        <TextView
+            android:id="@+id/create_contact1_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact1_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact_info_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/create_conf_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_conf_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_conf_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_conf_name_hint_cz"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/create_conf_author_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_conf_author_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_conf_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_conf_author_hint_cz" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/create_camp_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_camp_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_camp_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_app_title_hint_cz" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+            app:layout_constraintStart_toStartOf="@+id/create_departure_date_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_departure_date_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ins_departure_date"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="date"
-                app:layout_constraintStart_toStartOf="@+id/create_departure_date_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_departure_date_text_view" />
+                android:hint="@string/create_date_hint"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ins_camp_name_edit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintStart_toStartOf="@+id/create_camp_name_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_camp_name_text_view" />
 
-            <EditText
-                android:id="@+id/ins_conf_author_edit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintStart_toStartOf="@+id/create_conf_author_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_conf_author_text_view" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+            app:layout_constraintStart_toStartOf="@+id/create_departure_time_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_departure_time_text_view">
 
-            <EditText
-                android:id="@+id/ins_conf_name_edit_text"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_departure_time"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="@+id/create_conf_name_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_conf_name_text_view" />
+                android:hint="@string/create_time_hint"
+                android:inputType="time" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ins_departure_time_edit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="time"
-                app:layout_constraintStart_toStartOf="@+id/create_departure_time_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_departure_time_text_view" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+            app:layout_constraintStart_toStartOf="@+id/create_arrival_date_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_arrival_date_text_view">
 
-            <EditText
-                android:id="@+id/ins_arrival_date_edit_text"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_arrival_date"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="date"
-                android:text="Name"
-                app:layout_constraintStart_toStartOf="@+id/create_arrival_date_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_arrival_date_text_view" />
+                android:hint="@string/create_date_hint"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ins_arrival_time_edit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:inputType="time"
-                app:layout_constraintStart_toStartOf="@+id/create_arrival_time_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_arrival_time_text_view" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
+            app:layout_constraintStart_toStartOf="@+id/create_arrival_time_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_arrival_time_text_view">
 
-            <EditText
-                android:id="@+id/ins_camp_address_edit_text"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_arrival_time"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
+                android:hint="@string/create_time_hint"
+                android:inputType="time" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
+            app:layout_constraintStart_toStartOf="@+id/create_camp_address_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_camp_address_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_camp_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="start|top"
-                android:inputType="textMultiLine"
-                app:layout_constraintStart_toStartOf="@+id/create_camp_address_text_view"
-                app:layout_constraintTop_toBottomOf="@+id/create_camp_address_text_view" />
+                android:hint="@string/create_camp_address_hint_cz"
+                android:inputType="textMultiLine|textPostalAddress"
+                android:singleLine="false" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_conf_name_text_view"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+            app:layout_constraintStart_toStartOf="@+id/create_contact1_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact1_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="50dp"
-                android:text="@string/create_conf_name_tag_cz"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:hint="@string/create_contact_name_hint_cz"
+                android:inputType="textPersonName|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_conf_author_text_view"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout9"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact1_val"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_conf_author_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_conf_name_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_conf_name_edit_text" />
+                android:hint="@string/create_contact_value_hint"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_departure_date_text_view"
-                android:layout_width="wrap_content"
+
+
+        <TextView
+            android:id="@+id/create_contact3_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact3_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout12"
+            app:layout_constraintStart_toStartOf="@+id/create_contact3_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact3_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_departure_date_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_camp_name_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_camp_name_edit_text" />
+                android:hint="@string/create_contact_name_hint_cz"
+                android:inputType="textPersonName|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_departure_time_text_view"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout13"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout13"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact3_val"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_departure_time_tag_cz"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/ins_departure_date"
-                app:layout_constraintTop_toBottomOf="@+id/ins_departure_date"
-                app:layout_constraintVertical_bias="0.0" />
+                android:hint="@string/create_contact_value_hint"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_arrival_date_text_view"
-                android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/create_contact2_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact2_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout10"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout10"
+            app:layout_constraintStart_toStartOf="@+id/create_contact2_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact2_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_arrival_date_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_departure_time_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_departure_time_edit_text" />
+                android:hint="@string/create_contact_name_hint_cz"
+                android:inputType="textPersonName|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_arrival_time_text_view"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout11"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout11"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact2_val"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_arrival_time_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_arrival_date_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_arrival_date_edit_text" />
+                android:hint="@string/create_contact_value_hint"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_camp_address_text_view"
-                android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/create_contact4_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact4_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout14"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout14"
+            app:layout_constraintStart_toStartOf="@+id/create_contact4_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact4_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_camp_address_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_arrival_time_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_arrival_time_edit_text" />
+                android:hint="@string/create_contact_name_hint_cz"
+                android:inputType="textPersonName|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_first_contact_text_view"
-                android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout15"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout15"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact4_val"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/ins_camp_address_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_camp_address_edit_text" />
+                android:hint="@string/create_contact_value_hint"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/create_camp_name_text_view"
-                android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/create_contact5_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_contact5_tag_cz"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout16"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout16" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout17"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout16"
+            app:layout_constraintStart_toStartOf="@+id/create_contact5_name_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/create_contact5_name_text_view">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/create_app_title_tag_cz"
-                app:layout_constraintStart_toStartOf="@+id/ins_conf_author_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/ins_conf_author_edit_text" />
+                android:hint="@string/create_contact_name_hint_cz"
+                android:inputType="textPersonName|text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout17"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout17"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout17">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ins_contact5_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_contact_value_hint"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

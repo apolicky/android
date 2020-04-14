@@ -15,8 +15,6 @@ public class SelectConfigAdapter extends BaseAdapter {
 
     List<String> configs_urls, config_names;
 
-    int file_used;
-
     Context context;
     File rootDir;
     LayoutInflater mInflater;
@@ -48,17 +46,15 @@ public class SelectConfigAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = (View) mInflater.inflate(R.layout.select_config_l, null);
 
-        file_used = i;
-
         final TextView conf_name_text_view = (TextView) v.findViewById(R.id.sel_conf_available_conf_text_view);
         conf_name_text_view.setText(config_names.get(i));
 
         Button set_conf_btn = (Button) v.findViewById(R.id.sel_conf_set_config_btn);
 
-        set_conf_btn.setOnClickListener(new View.OnClickListener() {
+        set_conf_btn.setOnClickListener(new ArgumentedOnClickListener(i){
             @Override
-            public void onClick(View view) {
-                setConfiguration();
+            public void onClick(View v) {
+                setConfiguration(argument);
             }
         });
 
@@ -70,8 +66,8 @@ public class SelectConfigAdapter extends BaseAdapter {
      * Tries to download configuration file saved saved on web page 'config_urls.get(file_used)'
      * Saves it as configuration file that will be used from now on.
      */
-    private void setConfiguration(){
+    private void setConfiguration(int i){
         String file_name = rootDir + "/" + context.getResources().getString(R.string.conf_filename_json);
-        ConfigManager.saveConfiguration(file_name, configs_urls.get(file_used));
+        ConfigManager.saveConfiguration(file_name, configs_urls.get(i));
     }
 }

@@ -35,8 +35,9 @@ public class Contacts extends Fragment {
 
         contactListView = (ListView) view.findViewById(R.id.contacts_list_view);
         ContactsAdapter ca = new ContactsAdapter(getContext(),
-                CM.getValues(getResources().getString(R.string.contact_names)),
-                CM.getValues(getResources().getString(R.string.contact_numbers)));
+                CM.getValueMap("contacts"));
+//                CM.getValues(getResources().getString(R.string.contact_names)),
+//                CM.getValues(getResources().getString(R.string.contact_numbers)));
         contactListView.setAdapter(ca);
 
         return view;

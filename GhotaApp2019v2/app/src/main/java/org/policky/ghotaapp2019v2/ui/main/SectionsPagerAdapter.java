@@ -22,7 +22,7 @@ import org.policky.ghotaapp2019v2.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_organization, R.string.tab_contacts, R.string.tab_online_photos, R.string.tab_packing};
+    private static int[] TABS_USED, TAB_TITLES;
     private final Context mContext;
     private ConfigManager CM;
 
@@ -30,6 +30,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         mContext = context;
         CM = CM_;
+        TABS_USED = new int[]{0,1,2,3};
+        TAB_TITLES = new int[]{R.string.tab_organization,R.string.tab_contacts,R.string.tab_others,R.string.tab_online_photos};
+        whatTabs();
     }
 
     @Override
@@ -37,7 +40,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         Fragment fragment = null;
-        switch (position){
+        switch (TABS_USED[position]){
             case 0:
                 fragment = new Organization(CM);
                 break;
@@ -45,16 +48,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new Contacts(CM);
                 break;
             case 2:
-                fragment = new OnlinePhotos(CM);
-                break;
-            case 3:
                 fragment = new Other(CM);
                 break;
+            case 3:
+                fragment = new OnlinePhotos(CM);
+                break;
 
-                default:
-                    fragment = null;
+            default:
+                fragment = null;
         }
-
 
         return fragment;
     }
@@ -62,12 +64,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        return mContext.getResources().getString(TAB_TITLES[TABS_USED[position]]);
     }
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 4;
+        return TABS_USED.length;
+    }
+
+    private void whatTabs(){
+        int[] a = CM.getUsedTabs();
+        if(a != null && a.length > 0){
+            TABS_USED = a;
+        }
     }
 }

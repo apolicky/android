@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CreateConfig"></activity>
+        <activity
+            android:name=".CreateConfig"
+            android:windowSoftInputMode="adjustResize"
+            />
         <activity android:name=".SelectConfig" />
         <activity
             android:name=".MainActivity"
