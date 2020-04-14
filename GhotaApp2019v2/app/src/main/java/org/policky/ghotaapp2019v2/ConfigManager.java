@@ -12,21 +12,19 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
 
 public class ConfigManager {
 
-    private JSONObject json_res;
-    private String curr_file;
+    private JSONObject jsonResource;
+//    private String curr_file;
+    private int indexOfCurrFile = 0;
     private Context c;
-    private boolean config_loaded = false;
-    private ArrayMap<String,String> conf_names_paths;
+    private boolean configLoaded = false;
+    private ArrayMap<String,String> confNamesPaths;
 
     public ConfigManager(Context c_){
         c = c_;
-        conf_names_paths = new ArrayMap<>();
+        confNamesPaths = new ArrayMap<>();
         loadAvailableConfigs();
         loadLastConfig();
         loadConfigDocumentJSON();
@@ -38,7 +36,7 @@ public class ConfigManager {
             if(f.getName().endsWith(".json")){
                 String path_name = f.getAbsolutePath();
                 String cong_name = JSONParser.getStringValue("resources",c.getResources().getString(R.string.app_title),path_name);
-                conf_names_paths.put(cong_name,path_name);
+                confNamesPaths.put(cong_name,path_name);
             }
         }
     }
@@ -50,7 +48,12 @@ public class ConfigManager {
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            curr_file = new String(buffer, "UTF-8");
+            String curr_file = new String(buffer, "UTF-8");
+            for(int i = 0; i < confNamesPaths.size(); i++){
+                if(confNamesPaths.get((confNamesPaths.keyAt(i))).equals(curr_file)){
+                    indexOfCurrFile = i;
+                }
+            }
         }
         catch (IOException e){
             e.printStackTrace();
@@ -58,8 +61,9 @@ public class ConfigManager {
     }
 
     private void saveLastConfig(){
-        try(FileOutputStream FOS = new FileOutputStream(new File(curr_file))){
-            FOS.write(curr_file.getBytes());
+        String f = c.getFilesDir() + "/" + c.getResources().getString(R.string.last_used_conf);
+        try(FileOutputStream FOS = new FileOutputStream(new File(f))){
+            FOS.write(confNamesPaths.valueAt(indexOfCurrFile).getBytes());
         }
         catch (IOException e){
             e.printStackTrace();
@@ -67,26 +71,26 @@ public class ConfigManager {
     }
 
     private void loadConfigDocumentJSON(){
-        try(InputStream is = new FileInputStream(new File(curr_file))){
+        try(InputStream is = new FileInputStream(new File(confNamesPaths.valueAt(indexOfCurrFile)))){
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
             String f = new String(buffer);
             JSONObject reader = new JSONObject(f);
-            json_res = reader.getJSONObject("resources");
-            config_loaded = true;
+            jsonResource = reader.getJSONObject("resources");
+            configLoaded = true;
         }
         catch (IOException | JSONException e){
             e.printStackTrace();
-            config_loaded = false;
+            configLoaded = false;
         }
     }
 
     public String getValue(String tag){
-        if(config_loaded){
+        if(configLoaded){
             try{
-                String s = json_res.getString(tag);
+                String s = jsonResource.getString(tag);
                 return s;
             }
             catch (JSONException e){
@@ -97,17 +101,17 @@ public class ConfigManager {
     }
 
     public String[] getAvailableConfs(){
-        String[] res = new String[conf_names_paths.size()];
-        for(int i = 0; i < conf_names_paths.size(); i++){
-            res[i] = conf_names_paths.keyAt(i);
+        String[] res = new String[confNamesPaths.size()];
+        for(int i = 0; i < confNamesPaths.size(); i++){
+            res[i] = confNamesPaths.keyAt(i);
         }
         return res;
     }
 
     public int[] getUsedTabs(){
-        if(config_loaded){
+        if(configLoaded){
             try{
-                JSONArray ja = json_res.getJSONArray("tabs_used");
+                JSONArray ja = jsonResource.getJSONArray("tabs_used");
                 int[] tabs_used = new int[ja.length()];
                 for(int i = 0; i < ja.length(); i++){
                     tabs_used[i] = ja.getInt(i);
@@ -124,9 +128,9 @@ public class ConfigManager {
 
     public ArrayMap<String,String> getValueMap(String tag){
         ArrayMap<String,String> values = new ArrayMap<>();
-        if(config_loaded){
+        if(configLoaded){
             try{
-                JSONArray ja = json_res.getJSONArray(tag);
+                JSONArray ja = jsonResource.getJSONArray(tag);
                 for(int i = 0; i < ja.length(); i++){
                     values.put(ja.getJSONObject(i).getString("name"),ja.getJSONObject(i).getString("value"));
                 }
@@ -141,7 +145,7 @@ public class ConfigManager {
     }
 
     public boolean isConfigLoaded(){
-        return config_loaded;
+        return configLoaded;
     }
 
     public void reloadConfig(){
@@ -153,21 +157,26 @@ public class ConfigManager {
      * @param config_file_path place where config will be saved.
      * @param config_url url of page which the config will be downloaded from.
      */
-    public static void saveConfiguration(String config_file_path, String config_url){
-        try(FileOutputStream FOS = new FileOutputStream(new File(config_file_path))){
+    public static void saveConfiguration(String config_file_path, String config_url) throws IOException{
+        File f = new File(config_file_path);
+        if(!f.exists()){
+            f.createNewFile();
+        }
+        try(FileOutputStream FOS = new FileOutputStream(f)){
             String new_conf = HTMLDownloader.getPage(config_url);
             FOS.write(new_conf.getBytes());
-        }
-        catch (IOException e){
-            e.printStackTrace();
         }
     }
 
     public void setConfig(String conf_name){
-        curr_file = conf_names_paths.get(conf_name);
+        indexOfCurrFile = confNamesPaths.indexOfKey(conf_name);
         saveLastConfig();
         loadConfigDocumentJSON();
         // would be awesome to refresh the whole app from here.
+    }
+
+    public String currentConfig(){
+        return confNamesPaths.keyAt(indexOfCurrFile);
     }
 
 

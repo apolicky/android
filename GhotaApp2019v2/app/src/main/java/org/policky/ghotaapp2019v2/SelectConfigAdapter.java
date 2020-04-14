@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class SelectConfigAdapter extends BaseAdapter {
@@ -67,7 +69,12 @@ public class SelectConfigAdapter extends BaseAdapter {
      * Saves it as configuration file that will be used from now on.
      */
     private void setConfiguration(int i){
-        String file_name = rootDir + "/" + context.getResources().getString(R.string.conf_filename_json);
-        ConfigManager.saveConfiguration(file_name, configs_urls.get(i));
+        String file_name = rootDir + "/" + config_names.get(i) + ".json";
+        try{
+            ConfigManager.saveConfiguration(file_name, configs_urls.get(i));
+        }
+        catch (IOException e){
+            Toast.makeText(context,"File "+ file_name + "could not be created.", Toast.LENGTH_LONG).show();
+        }
     }
 }

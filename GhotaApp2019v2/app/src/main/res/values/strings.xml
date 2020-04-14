@@ -98,7 +98,7 @@
     <string name="create_conf_author_tag_cz">Autor konfigurace</string>
     <string name="create_conf_author_hint_cz">Napište své jméno</string>
     <string name="create_app_title_tag_cz">Název tábora</string>
-    <string name="create_app_title_hint:_cz">Napište název tábora</string>
+    <string name="create_app_title_hint_cz">Napište název tábora</string>
     <string name="create_departure_date_tag_cz">Datum odjezdu</string>
     <string name="create_date_hint">DD.MM.YYYY</string>
     <string name="create_departure_time_tag_cz">Čas odjezdu</string>

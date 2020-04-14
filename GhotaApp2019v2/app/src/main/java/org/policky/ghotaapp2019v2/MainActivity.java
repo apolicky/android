@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
     File rootDir;
-    ConfigManager CM;
+    static ConfigManager CM;
+    Spinner sp;
 
     ArrayMap<View,String> view_resource_map;
 
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
+        sp = (Spinner) findViewById(R.id.spinner);
+
 
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -79,16 +83,17 @@ public class MainActivity extends AppCompatActivity {
 
         rootDir = getFilesDir();
 
-        if(!CM.isConfigLoaded()){
-            goToSelectConfig();
-            CM.reloadConfig();
-        }
+//        if(!CM.isConfigLoaded()){
+//            goToSelectConfig();
+//            CM.reloadConfig();
+//        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         reloadConfig();
+        setCampConfigSpinner();
     }
 
     private void reloadConfig(){
@@ -111,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCampConfigSpinner(){
-        Spinner sp = (Spinner) findViewById(R.id.spinner);
         String[] arr = CM.getAvailableConfs();
 
         final ArrayAdapter<String> adp1 = new ArrayAdapter<String>(this,
@@ -123,14 +127,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 CM.setConfig(adp1.getItem(i));
-                refreshApplication();
-            }
+//                refreshApplication();
+           }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
+        sp.setSelection(adp1.getPosition(CM.currentConfig()));
     }
 
 }

@@ -45,7 +45,7 @@ public class SelectConfig extends AppCompatActivity {
     private Button refresh_available_conf_btn, reload_conf_btn, create_conf_btn;
     private File rootDir;
 
-    private ConfigManager CM;
+//    private ConfigManager CM;
 
     private ArrayList<String> conf_urls;
 
@@ -56,7 +56,7 @@ public class SelectConfig extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
-        CM = new ConfigManager(getApplicationContext());
+//        CM = new ConfigManager(getApplicationContext());
         rootDir = getFilesDir();
 
         curr_conf = (TextView) findViewById(R.id.curr_conf_value);
@@ -99,9 +99,9 @@ public class SelectConfig extends AppCompatActivity {
     }
 
     private void reloadConfig(){
-        CM.reloadConfig();
-        curr_author.setText(CM.getValue(getResources().getString(R.string.conf_author)));
-        curr_conf.setText(CM.getValue(getResources().getString(R.string.conf_name)));
+        MainActivity.CM.reloadConfig();
+        curr_author.setText(MainActivity.CM.getValue(getResources().getString(R.string.conf_author)));
+        curr_conf.setText(MainActivity.CM.getValue(getResources().getString(R.string.conf_name)));
     }
 
     /**
@@ -135,7 +135,6 @@ public class SelectConfig extends AppCompatActivity {
      * @param htmlsite html of site that is to be parsed.
      */
     private void parseHREFs(List confs, String htmlsite){
-
         String[] parts = htmlsite.split(" ");
 
         String cont = getResources().getString(R.string.conf_contains);
@@ -168,6 +167,7 @@ public class SelectConfig extends AppCompatActivity {
 
     private void showAvailableConfigs(){
         try{
+            conf_urls.clear();
             String possible_confs_html = getHTML(getResources().getString(R.string.conf_url));
             parseHREFs(conf_urls, possible_confs_html);
             listConfs(conf_urls,parseNames(conf_urls));
