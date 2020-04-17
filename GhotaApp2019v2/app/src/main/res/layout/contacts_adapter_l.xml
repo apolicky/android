@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,17 +17,31 @@
         android:layout_marginBottom="20dp"
         android:textSize="24sp" />
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/cont_ada_call_cont_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignTop="@+id/cont_ada_cont_name_text_view"-->
+<!--        android:layout_alignBottom="@+id/cont_ada_cont_name_text_view"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="-7dp"-->
+<!--        android:layout_marginEnd="76dp"-->
+<!--        android:layout_marginRight="76dp"-->
+<!--        android:layout_marginBottom="-9dp"-->
+<!--        android:text="@string/call_tag_cz" />-->
+
+    <ImageButton
         android:id="@+id/cont_ada_call_cont_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/cont_ada_cont_name_text_view"
         android:layout_alignBottom="@+id/cont_ada_cont_name_text_view"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-8dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="-8dp"
-        android:text="@string/call_tag_cz"/>
+        android:layout_marginBottom="0dp"
+        android:tint="#8BC34A"
+        android:backgroundTint="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_menu_call" />
 </RelativeLayout>

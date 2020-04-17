@@ -12,18 +12,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ConfigManager {
 
     private JSONObject jsonResource;
-//    private String curr_file;
     private int indexOfCurrFile = 0;
-    private Context c;
+    private Context context;
     private boolean configLoaded = false;
     private ArrayMap<String,String> confNamesPaths;
 
     public ConfigManager(Context c_){
-        c = c_;
+        context = c_;
         confNamesPaths = new ArrayMap<>();
         loadAvailableConfigs();
         loadLastConfig();
@@ -31,18 +33,18 @@ public class ConfigManager {
     }
 
     private void loadAvailableConfigs(){
-        File rootDir = c.getFilesDir();
+        File rootDir = context.getFilesDir();
         for(File f : rootDir.listFiles()){
             if(f.getName().endsWith(".json")){
                 String path_name = f.getAbsolutePath();
-                String cong_name = JSONParser.getStringValue("resources",c.getResources().getString(R.string.app_title),path_name);
+                String cong_name = JSONParser.getStringValue("resources", context.getResources().getString(R.string.app_title),path_name);
                 confNamesPaths.put(cong_name,path_name);
             }
         }
     }
 
     private void loadLastConfig(){
-        String f = c.getFilesDir() + "/" + c.getResources().getString(R.string.last_used_conf);
+        String f = context.getFilesDir() + "/" + context.getResources().getString(R.string.last_used_conf);
         try(InputStream is = new FileInputStream(f)){
             int size = is.available();
             byte[] buffer = new byte[size];
@@ -61,7 +63,7 @@ public class ConfigManager {
     }
 
     private void saveLastConfig(){
-        String f = c.getFilesDir() + "/" + c.getResources().getString(R.string.last_used_conf);
+        String f = context.getFilesDir() + "/" + context.getResources().getString(R.string.last_used_conf);
         try(FileOutputStream FOS = new FileOutputStream(new File(f))){
             FOS.write(confNamesPaths.valueAt(indexOfCurrFile).getBytes());
         }
@@ -90,6 +92,9 @@ public class ConfigManager {
     public String getValue(String tag){
         if(configLoaded){
             try{
+                if(tag.equals(context.getString(R.string.photos_web_directory))){
+                    return "37.46.208.51/android";
+                }
                 String s = jsonResource.getString(tag);
                 return s;
             }
@@ -97,13 +102,13 @@ public class ConfigManager {
                 e.printStackTrace();
             }
         }
-        return c.getResources().getString(R.string.unset);
+        return context.getResources().getString(R.string.unset);
     }
 
-    public String[] getAvailableConfs(){
-        String[] res = new String[confNamesPaths.size()];
-        for(int i = 0; i < confNamesPaths.size(); i++){
-            res[i] = confNamesPaths.keyAt(i);
+    public List<String> getAvailableConfs(){
+        List<String> res = new ArrayList<>();
+        for(Map.Entry<String,String> me : confNamesPaths.entrySet()){
+            res.add(me.getKey());
         }
         return res;
     }
@@ -142,6 +147,25 @@ public class ConfigManager {
             }
         }
         return values;
+    }
+
+    public int[] getIntArray(String tag){
+        if(configLoaded){
+            try{
+                JSONArray ja = jsonResource.getJSONArray(tag);
+                int[] res = new int[ja.length()];
+                for(int i = 0; i < ja.length(); i++){
+                    res[i] = ja.getInt(i);
+                }
+                return res;
+            }
+            catch (JSONException e){
+                return null;
+            }
+        }
+        else {
+            return null;
+        }
     }
 
     public boolean isConfigLoaded(){

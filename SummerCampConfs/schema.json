@@ -3,12 +3,12 @@
 		"app_title" : "App Title",
 		"conf_author" : "Author of Configuration",
 		"conf_name" : "Summer Camp ABC",
-		"departure_date" : "69.4.2000",
-		"departure_time" : "13:30",
+		"departure_date" : [ 9, 4, 2020 ],
+		"departure_time" : [ 13, 30 ],
 		"departure_place" : "Prague",
 		"departure_geo_location" : "69.696969",
-		"arrival_date" : "42.69.2000",
-		"arrival_time" : "13:30",
+		"arrival_date" : [ 6, 9, 2020 ],
+		"arrival_time" : [ 14, 30 ],
 		"arrival_place" : "Prague",
 		"arrival_geo_location" : "69.696969",
 		"camp_address_value" : "Základna XYZ\nUlice 5\nMěsto M\n123 45",
@@ -19,7 +19,7 @@
 			},
 			{ 
 				"name" : "contact 2",
-				"value" :" 696969696"
+				"value" : "696969696"
 			}
 		],
 		"tabs_used" : [

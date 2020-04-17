@@ -7,6 +7,7 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.policky.ghotaapp2019v2.ConfigManager;
 import org.policky.ghotaapp2019v2.Contacts;
@@ -28,6 +29,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public SectionsPagerAdapter(Context context, FragmentManager fm, ConfigManager CM_) {
         super(fm);
+        clear(fm);
         mContext = context;
         CM = CM_;
         TABS_USED = new int[]{0,1,2,3};
@@ -40,7 +42,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
         Fragment fragment = null;
-        switch (TABS_USED[position]){
+
+        switch (TABS_USED[position]) {
             case 0:
                 fragment = new Organization(CM);
                 break;
@@ -59,12 +62,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         }
 
         return fragment;
+
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[TABS_USED[position]]);
+       return mContext.getResources().getString(TAB_TITLES[TABS_USED[position]]);
     }
 
     @Override
@@ -77,5 +81,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         if(a != null && a.length > 0){
             TABS_USED = a;
         }
+    }
+
+    private void clear(FragmentManager fm) {
+        FragmentTransaction transaction = fm.beginTransaction();
+        for (Fragment fragment : fm.getFragments()) {
+            transaction.remove(fragment);
+        }
+        fm.getFragments().clear();
+        transaction.commitNow();
     }
 }

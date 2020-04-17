@@ -1,30 +1,26 @@
 package org.policky.ghotaapp2019v2;
 
 import android.content.Intent;
+import android.icu.util.Calendar;
+
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.io.File;
 import java.io.IOException;
 
 
 public class Organization extends Fragment {
 
-    TextView departurePlaceTextView, arrivalPlaceTextView, departureTimeTextView, arrivalTimeTextView, campAddressTextView;
-    Switch notificationSwitch;
+    TextView departurePlaceTextView, arrivalPlaceTextView, departureTimeTextView, arrivalTimeTextView, campAddressTextView, setNotificationTextView;
     private ConfigManager CM;
 
     public Organization(ConfigManager CM_){
@@ -41,10 +37,9 @@ public class Organization extends Fragment {
         departureTimeTextView = (TextView) view.findViewById(R.id.departureTimeValueTextView);
         arrivalPlaceTextView = (TextView) view.findViewById(R.id.arrivalPlaceValueTextView);
         arrivalTimeTextView = (TextView) view.findViewById(R.id.arrivalTimeValueTextView);
-
         campAddressTextView = (TextView) view.findViewById(R.id.campAdressValueTextView);
+        setNotificationTextView = (TextView) view.findViewById(R.id.setNotificationTextView);
 
-        notificationSwitch = (Switch) view.findViewById(R.id.setNotificationSwitch);
 
         initializeTexts();
 
@@ -62,12 +57,10 @@ public class Organization extends Fragment {
             }
         });
 
-        initializePositionOfSwitch(notificationSwitch);
-
-        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        setNotificationTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                setPositionOfSwitch(notificationSwitch, b);
+            public void onClick(View view) {
+                createCalendarEvent();
             }
         });
 
@@ -77,11 +70,6 @@ public class Organization extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        reloadConfig();
-    }
-
-    private void reloadConfig(){
-        CM.reloadConfig();
         initializeTexts();
     }
 
@@ -98,12 +86,12 @@ public class Organization extends Fragment {
         String coords;
         String text = "";
         if(departure){
-            coords = CM.getValue(getResources().getString(R.string.departure_geo_location));
-            text = CM.getValue(getResources().getString(R.string.departure_place));
+            coords = CM.getValue(getResources().getString(R.string.organization_departure_geo_coords));
+            text = CM.getValue(getResources().getString(R.string.organization_departure_place));
         }
         else{
-            coords = CM.getValue(getResources().getString(R.string.arrival_geo_location));
-            text = CM.getValue(getResources().getString(R.string.arrival_place));
+            coords = CM.getValue(getResources().getString(R.string.organization_arrival_geo_coords));
+            text = CM.getValue(getResources().getString(R.string.organization_arrival_place));
         }
 
         StringBuilder sb = new StringBuilder();
@@ -122,61 +110,56 @@ public class Organization extends Fragment {
      * Initializes texts of TextViews from current config.
      */
     private void initializeTexts() {
-        departurePlaceTextView.setText(CM.getValue(getResources().getString(R.string.departure_place)));
-        departureTimeTextView.setText(CM.getValue(getResources().getString(R.string.departure_time)));
-        arrivalPlaceTextView.setText(CM.getValue(getResources().getString(R.string.arrival_place)));
-        arrivalTimeTextView.setText(CM.getValue(getResources().getString(R.string.arrival_time)));
-        campAddressTextView.setText(CM.getValue(getResources().getString(R.string.camp_address_value)));
+        departurePlaceTextView.setText(CM.getValue(getResources().getString(R.string.organization_departure_place)));
+        arrivalPlaceTextView.setText(CM.getValue(getResources().getString(R.string.organization_arrival_place)));
+        campAddressTextView.setText(CM.getValue(getResources().getString(R.string.organization_camp_address_value)));
+
+        int[] dDate = CM.getIntArray(getResources().getString(R.string.organization_departure_date));
+        int[] dTime = CM.getIntArray(getResources().getString(R.string.organization_departure_time));
+        int[] aDate = CM.getIntArray(getResources().getString(R.string.organization_arrival_date));
+        int[] aTime = CM.getIntArray(getResources().getString(R.string.organization_arrival_time));
+
+        try {
+            departureTimeTextView.setText(datify(dDate, dTime));
+            arrivalTimeTextView.setText(datify(aDate, aTime));
+        } catch (IOException e){}
     }
 
-    private void initializePositionOfSwitch(Switch sw){
-        File rootDir = getContext().getFilesDir();
-        boolean isSetNotif = false;
-        for(File f : rootDir.listFiles()){
-            //Log.d("initPosition:", f.getName() + "---" + rootDir.toString() + "/" + getString(R.string.notification_indicator_file));
-            if(f.getName().equals(getString(R.string.notification_indicator_file))){
-                isSetNotif = true;
-                break;
+    private void createCalendarEvent(){
+        int[] depDate,depTime,arrDate,arrTime;
+        depDate = CM.getIntArray(getResources().getString(R.string.organization_departure_date));
+        depTime = CM.getIntArray(getResources().getString(R.string.organization_departure_time));
+        arrDate = CM.getIntArray(getResources().getString(R.string.organization_arrival_date));
+        arrTime = CM.getIntArray(getResources().getString(R.string.organization_arrival_time));
+
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(depDate[2], depDate[1], depDate[0], depTime[0], depTime[1]);
+
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(arrDate[2], arrDate[1], arrDate[0], arrTime[0], arrTime[1]);
+
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setType("vnd.android.cursor.item/event");
+
+        intent.putExtra(CalendarContract.Events.TITLE, "Nazev akce");
+        intent.putExtra(CalendarContract.Events.ALL_DAY, false);// periodicity
+        intent.putExtra(CalendarContract.Events.DESCRIPTION,"popisek akce");
+        intent.putExtra(CalendarContract.Reminders.MINUTES,50);
+        intent.setData(CalendarContract.Events.CONTENT_URI);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis());
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis());
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Misto Akce");
+
+        startActivity(intent);
+    }
+
+    private String datify(int[] date, int[] time) throws IOException{
+        if(date!=null && time!=null) {
+            if (date.length == 3 && time.length == 2) {
+                return date[0] + "." + date[1] + "." + date[2] + " " + time[0] + ":" + time[1];
             }
         }
-
-        sw.setChecked(isSetNotif);
-
+        throw new IOException("Wrong datetime format");
     }
-
-    private void setPositionOfSwitch(Switch sw, boolean nowChecked){
-        File rootDir = getContext().getFilesDir();
-        if(nowChecked){
-            File switchIndicator = new File(rootDir.toString() + "/" + getString(R.string.notification_indicator_file));
-            if(!switchIndicator.exists()){
-                try{
-                    switchIndicator.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        else{
-            for(File f : rootDir.listFiles()){
-                if(f.getName().equals(getString(R.string.notification_indicator_file))){
-                    f.delete();
-                }
-            }
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.change_config_menu,menu);
-        MenuItem item = menu.add ("Clear Array");
-        item.setOnMenuItemClickListener (new MenuItem.OnMenuItemClickListener(){
-            @Override
-            public boolean onMenuItemClick (MenuItem item){
-//                clearArray();
-                return true;
-            }
-        });
-    }
-
 
 }

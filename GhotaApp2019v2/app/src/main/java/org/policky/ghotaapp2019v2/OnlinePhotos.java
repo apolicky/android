@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,12 +23,15 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OnlinePhotos extends Fragment {
 
-    ImageView iV;
-    HashSet linksRead;
+    ListView photosListView;
 
     private ConfigManager CM;
 
@@ -37,59 +42,39 @@ public class OnlinePhotos extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        linksRead = new HashSet<String>();
-
         View view = inflater.inflate(R.layout.frag_online_photos_layout,container, false);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
         StrictMode.setThreadPolicy(policy);
 
-        iV = view.findViewById(R.id.imageView);
+        photosListView = view.findViewById(R.id.photos_list_view);
+        String webPage = CM.getValue(getString(R.string.photos_web_directory));
+        OnlinePhotosAdapter opa = new OnlinePhotosAdapter(getContext(),imageLinks(webPage));
 
-        iV.setImageDrawable(LoadImageFromWebOperations("http://ghota.net/2019/graphics/online/12-m-1.jpg"));
-
-        getPageLinks("http://ghota.net/2019/graphics/online/");
-
-        for(Object o : linksRead){
-            System.out.println(o);
-        }
+        photosListView.setAdapter(opa);
 
         return view;
     }
 
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            System.out.println("height: " + d.getMinimumHeight() + " width: " + d.getMinimumWidth());
-            return d;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+    // TODO vymysli, jak bude muset byt zadana slozka s obrazky. Budou muset byt ulozeny primo na miste nebo bude stacit tam mit odkazy na ne a udelat navigaci s relativni cestou.
 
-    public void getPageLinks(String URL) {
-        //4. Check if you have already crawled the URLs
-        //(we are intentionally not checking for duplicate content in this example)
-        if (!linksRead.contains(URL)) {
-            try {
-                //4. (i) If not add it to the index
-                if (linksRead.add(URL)) {
-                    System.out.println(URL);
-                }
-                //2. Fetch the HTML code
-                Document document = Jsoup.connect(URL).get();
-                //3. Parse the HTML to extract links to other URLs
-                Elements linksOnPage = document.select("a[img]");
-                //5. For each extracted URL... go back to Step 4.
-                for (Element page : linksOnPage) {
-                    getPageLinks(page.attr("abs:img"));
-                }
-            } catch (IOException e) {
-                System.err.println("For '" + URL + "': " + e.getMessage());
+    private List<String> imageLinks(String webDirectory) {
+        List<String> imageUrls = new ArrayList<>();
+        try{
+            String pageSource = HTMLDownloader.getPage(webDirectory);
+            Pattern p = Pattern.compile(getString(R.string.photos_href_pattern));
+            Matcher m = p.matcher(pageSource);
+            while(m.find()){
+                imageUrls.add(m.group());
             }
+
+            return imageUrls;
         }
+        catch (IOException e){
+            Toast.makeText(getContext(), "Could not find web page " + webDirectory, Toast.LENGTH_LONG).show();
+        }
+        imageUrls.clear();
+        return imageUrls;
     }
 
 }

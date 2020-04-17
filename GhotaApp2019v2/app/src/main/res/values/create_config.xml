@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_developer_title_cz">Vývojář</string>
+
+    <string name="create_conf_name_tag_cz">Název konfigurace</string>
+    <string name="create_conf_author_tag_cz">Autor konfigurace</string>
+
+    <!--  organisation  -->
+
+    <string name="create_organization_title_cz">Organizace</string>
+
+    <string name="create_app_title_tag_cz">Název tábora</string>
+    <string name="create_departure_date_tag_cz">Datum odjezdu</string>
+    <string name="create_departure_time_tag_cz">Čas odjezdu</string>
+    <string name="create_arrival_date_tag_cz">Datum příjezdu</string>
+    <string name="create_arrival_time_tag_cz">Čas příjezdu</string>
+    <string name="create_camp_address_tag_cz">Adresa tábořiště</string>
+
+    <!--  contacts -->
+
+    <string name="create_contacts_title_cz">Kontakty</string>
+
+    <string name="create_contact_info_cz">Můžete napsat až 5 kontaktů. Pokud pole nevyplníte, odkaz na kontakt se nevytvoří. Pokud
+     nezadáte žádný kontakt, nevytvoří se ani záložka s kontakty.</string>
+
+    <string name="create_contact1_tag_cz">Kontakt č.1</string>
+    <string name="create_contact2_tag_cz">Kontakt č.2</string>
+    <string name="create_contact3_tag_cz">Kontakt č.3</string>
+    <string name="create_contact4_tag_cz">Kontakt č.4</string>
+    <string name="create_contact5_tag_cz">Kontakt č.5</string>
+
+    <!--  hints  -->
+
+    <string name="create_conf_name_hint_cz">Napište název konfigurace</string>
+    <string name="create_conf_author_hint_cz">Napište své jméno</string>
+    <string name="create_app_title_hint_cz">Napište název tábora</string>
+    <string name="create_date_hint">DD.MM.YYYY</string>
+    <string name="create_time_hint">HH:MM</string>
+    <string name="create_camp_address_hint_cz">Napište adresu tábořiště</string>
+    <string name="create_contact_name_hint_cz">Napište jméno kontaktu</string>
+    <string name="create_contact_value_hint">123456789</string>
+
+</resources>

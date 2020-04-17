@@ -13,7 +13,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
-        android:text="@string/departure_tag_cz"
+        android:text="@string/organization_departure_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/departure_place_tag_cz" />
+        android:text="@string/organization_departure_place_tag_cz" />
 
     <TextView
         android:id="@+id/departureTimeTextView"
@@ -38,7 +38,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/departure_time_tag_cz" />
+        android:text="@string/organization_departure_time_tag_cz" />
 
     <TextView
         android:id="@+id/departurePlaceValueTextView"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/departurePlaceTextView"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentRight="false"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="0dp"
@@ -74,7 +74,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/arrival_tag_cz"
+        android:text="@string/organization_arrival_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -87,7 +87,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/arrival_place_tag_cz" />
+        android:text="@string/organization_arrival_place_tag_cz" />
 
     <TextView
         android:id="@+id/arrivalTimeTextView"
@@ -99,7 +99,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:text="@string/arrival_time_tag_cz" />
+        android:text="@string/organization_arrival_time_tag_cz" />
 
     <TextView
         android:id="@+id/arrivalPlaceValueTextView"
@@ -136,7 +136,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="30dp"
-        android:text="@string/camp_address_tag_cz"
+        android:text="@string/organization_camp_address_tag_cz"
         android:textSize="24sp" />
 
     <TextView
@@ -161,18 +161,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="50dp"
+        android:clickable="true"
         android:text="@string/set_notification_switch" />
 
-    <Switch
-        android:id="@+id/setNotificationSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/setNotificationTextView"
-        android:layout_alignEnd="@+id/arrivalTimeValueTextView"
-        android:layout_alignRight="@+id/arrivalTimeValueTextView"
-        android:layout_alignBottom="@+id/setNotificationTextView"
-        android:layout_marginTop="-4dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="-4dp" />
 </RelativeLayout>

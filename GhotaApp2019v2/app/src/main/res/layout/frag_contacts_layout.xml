@@ -13,7 +13,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
-        android:text="@string/recommendation" />
+        android:text="@string/contacts_recommendation" />
 
     <ListView
         android:id="@+id/contacts_list_view"

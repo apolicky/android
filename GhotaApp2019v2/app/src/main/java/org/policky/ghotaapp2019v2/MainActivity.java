@@ -1,49 +1,38 @@
 package org.policky.ghotaapp2019v2;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.ArrayMap;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.policky.ghotaapp2019v2.ui.main.SectionsPagerAdapter;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton fab;
-    File rootDir;
     static ConfigManager CM;
-    Spinner sp;
 
-    ArrayMap<View,String> view_resource_map;
+    SectionsPagerAdapter sectionsPagerAdapter;
+    ImageButton syncButton;
+    ViewPager viewPager;
+    TabLayout tabs;
+    Spinner sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,52 +41,42 @@ public class MainActivity extends AppCompatActivity {
 
         CM = new ConfigManager(getApplicationContext());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), CM);
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
-
+        viewPager = findViewById(R.id.view_pager);
+        tabs = findViewById(R.id.tabs);
         sp = (Spinner) findViewById(R.id.spinner);
+        syncButton = (ImageButton) findViewById(R.id.syncButton);
 
-
-        fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener(new View.OnClickListener() {
+        syncButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToSelectConfig();
+                syncApplication();
             }
         });
 
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-//        setActionBar(toolbar);
-//        getActionBar().setTitle(CM.getValue(getResources().getString(R.string.app_title)));
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                refreshApplication();
-            }
-        });
+        refreshSpinner();
 
-        setCampConfigSpinner();
-
-        rootDir = getFilesDir();
-
-//        if(!CM.isConfigLoaded()){
-//            goToSelectConfig();
-//            CM.reloadConfig();
-//        }
+        if(!CM.isConfigLoaded()){
+            goToSelectConfig();
+            CM.reloadConfig();
+        }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        reloadConfig();
-        setCampConfigSpinner();
+    private void syncApplication(){
+        Intent i = getIntent();
+        i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        startActivity(i);
     }
 
-    private void reloadConfig(){
+    private void refreshViewPager(){
+        sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), CM);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        tabs.setupWithViewPager(viewPager);
+    }
+
+    private void refreshConfig(){
         CM.reloadConfig();
+        refreshViewPager();
     }
 
     /**
@@ -108,26 +87,26 @@ public class MainActivity extends AppCompatActivity {
         startActivity(selectConfigIntent);
     }
 
-    private void refreshApplication(){
-        Intent i = getIntent();
-        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        finish();
-        startActivity(i);
-    }
+    private void refreshSpinner(){
+        List<String> availableConfs = CM.getAvailableConfs();
+        availableConfs.add(getResources().getString(R.string.manage_configurations));
 
-    private void setCampConfigSpinner(){
-        String[] arr = CM.getAvailableConfs();
-
-        final ArrayAdapter<String> adp1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,arr);
+        final ArrayAdapter<String> adp1 = new ArrayAdapter<>(this,
+                R.layout.spinner_item,availableConfs);
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         sp.setAdapter(adp1);
+
+        sp.setSelection(adp1.getPosition(CM.currentConfig()));
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                CM.setConfig(adp1.getItem(i));
-//                refreshApplication();
+                if(i == (adp1.getCount() - 1)) goToSelectConfig();
+                else CM.setConfig(adp1.getItem(i));
+
+                refreshConfig();
+                Toast.makeText(getApplicationContext(),R.string.refresh_config_message,Toast.LENGTH_LONG).show();
            }
 
             @Override
@@ -136,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        sp.setSelection(adp1.getPosition(CM.currentConfig()));
     }
 
 }

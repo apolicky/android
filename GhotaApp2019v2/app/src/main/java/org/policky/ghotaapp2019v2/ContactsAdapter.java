@@ -2,6 +2,7 @@ package org.policky.ghotaapp2019v2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.util.ArrayMap;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ContactsAdapter extends BaseAdapter {
@@ -45,7 +47,7 @@ public class ContactsAdapter extends BaseAdapter {
         final TextView contact_name_text_view = (TextView) v.findViewById(R.id.cont_ada_cont_name_text_view);
         contact_name_text_view.setText(names_numbers.keyAt(i));
 
-        Button call_contact_btn = (Button) v.findViewById(R.id.cont_ada_call_cont_btn);
+        ImageButton call_contact_btn = (ImageButton) v.findViewById(R.id.cont_ada_call_cont_btn);
 
         call_contact_btn.setOnClickListener(new ArgumentedOnClickListener(i){
             @Override

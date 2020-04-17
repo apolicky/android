@@ -3,37 +3,17 @@ package org.policky.ghotaapp2019v2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Network;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.ArrayMap;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Creates an interface to select configuration for summer camp.
@@ -42,7 +22,7 @@ public class SelectConfig extends AppCompatActivity {
 
     private TextView curr_conf, curr_author;
     private ListView config_list_view;
-    private Button refresh_available_conf_btn, reload_conf_btn, create_conf_btn;
+    private Button refresh_available_conf_btn, create_conf_btn;
     private File rootDir;
 
 //    private ConfigManager CM;
@@ -57,25 +37,20 @@ public class SelectConfig extends AppCompatActivity {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
 //        CM = new ConfigManager(getApplicationContext());
+
+        // TODO show downloaded configs, available configs and change button type depending on the state
+
+        conf_urls = new ArrayList<>();
         rootDir = getFilesDir();
 
         curr_conf = (TextView) findViewById(R.id.curr_conf_value);
         curr_author = (TextView) findViewById(R.id.conf_author_value);
         config_list_view = (ListView) findViewById(R.id.config_list_view);
         refresh_available_conf_btn = (Button) findViewById(R.id.refresh_config_btn);
-        reload_conf_btn = (Button) findViewById(R.id.reload_config_btn);
         create_conf_btn = (Button) findViewById(R.id.create_conf_btn);
 
         reloadConfig();
-
-        conf_urls = new ArrayList<>();
-
-        reload_conf_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                reloadConfig();
-            }
-        });
+        showAvailableConfigs();
 
         refresh_available_conf_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,8 +75,8 @@ public class SelectConfig extends AppCompatActivity {
 
     private void reloadConfig(){
         MainActivity.CM.reloadConfig();
-        curr_author.setText(MainActivity.CM.getValue(getResources().getString(R.string.conf_author)));
-        curr_conf.setText(MainActivity.CM.getValue(getResources().getString(R.string.conf_name)));
+        curr_author.setText(MainActivity.CM.getValue(getResources().getString(R.string.config_author)));
+        curr_conf.setText(MainActivity.CM.getValue(getResources().getString(R.string.config_name)));
     }
 
     /**

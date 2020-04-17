@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tags -->
+
+    <string name="organization_departure_tag_cz">ODJEZD</string>
+    <string name="organization_departure_place_tag_cz">MÍSTO ODJEZDU</string>
+    <string name="organization_departure_time_tag_cz">ČAS ODJEZDU</string>
+
+    <string name="organization_arrival_tag_cz">PŘÍJEZD</string>
+    <string name="organization_arrival_place_tag_cz">MÍSTO PŘÍJEZDU</string>
+    <string name="organization_arrival_time_tag_cz">ČAS PŘÍJEZDU</string>
+
+    <string name="organization_camp_address_tag_cz">ADRESA TÁBOŘIŠTĚ</string>
+
+    <!--  json resource keys  -->
+
+    <string name="organization_departure_date">departure_date</string>
+    <string name="organization_departure_time">departure_time</string>
+    <string name="organization_departure_place">departure_place</string>
+
+    <string name="organization_arrival_date">arrival_date</string>
+    <string name="organization_arrival_time">arrival_time</string>
+    <string name="organization_arrival_place">arrival_place</string>
+
+    <string name="organization_camp_address_value">camp_address_value</string>
+
+    <string name="organization_arrival_geo_coords">arrival_geo_location</string>
+    <string name="organization_departure_geo_coords">departure_geo_location</string>
+
+
+</resources>
