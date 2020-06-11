@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/developerSendButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/create_dev_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_developer_title_cz"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/create_dev_info_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/create_developer_info_cz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_dev_title_text_view" />
+
+
+            <TextView
+                android:id="@+id/create_contact1_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_conf_author_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_dev_info_text_view" />
+
+            <TextView
+                android:id="@+id/create_config_name_tag_cz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_conf_name_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/developerEmail" />
+
+
+            <TextView
+                android:id="@+id/create_dev_email_tag_cz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_developer_email_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/devName" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/devName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_dev_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact1_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_conf_author_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_config_name_text_input_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/create_dev_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_config_name_tag_cz">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_conf_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/developerEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_dev_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_dev_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_dev_email_tag_cz">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_dev_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_developer_email_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/create_dev_info_text_view"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/create_config_name_text_input_layout" />-->
+
+    <Button
+        android:id="@+id/developerSendButton"
+        style="@style/Dark.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:text="@string/send_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/developerBackButton"
+        style="@style/Borderless.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/back_button_text"
+        app:layout_constraintBottom_toBottomOf="@+id/developerSendButton"
+        app:layout_constraintEnd_toStartOf="@+id/developerSendButton"
+        app:layout_constraintTop_toTopOf="@+id/developerSendButton" />
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/developerSendButton"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/developerSendButton"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/developerSendButton" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

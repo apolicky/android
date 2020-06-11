@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/departureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/organization_departure_tag_cz"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/departurePlaceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTextView"
+        android:layout_alignStart="@+id/departureTextView"
+        android:layout_alignLeft="@+id/departureTextView"
+        android:layout_marginTop="20dp"
+        android:text="@string/organization_departure_place_tag_cz"
+        app:layout_constraintStart_toStartOf="@id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@id/departureTextView" />
+
+
+    <TextView
+        android:id="@+id/departurePlaceValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/departurePlaceTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginEnd="20dp"
+        android:text="@string/unset"
+        app:layout_constraintBottom_toBottomOf="@+id/departurePlaceTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/departurePlaceTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/departureTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departurePlaceTextView"
+        android:layout_alignStart="@+id/departureTextView"
+        android:layout_alignLeft="@+id/departureTextView"
+        android:layout_marginTop="10dp"
+        android:text="@string/organization_departure_time_tag_cz"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@+id/departurePlaceTextView" />
+
+    <TextView
+        android:id="@+id/departureTimeValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/departurePlaceValueTextView"
+        android:layout_alignRight="@+id/departurePlaceValueTextView"
+        android:layout_alignBottom="@+id/departureTimeTextView"
+        android:text="@string/unset"
+        app:layout_constraintBottom_toBottomOf="@+id/departureTimeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/departurePlaceValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/departureTimeTextView" />
+
+    <TextView
+        android:id="@+id/arrivalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTimeTextView"
+        android:layout_alignStart="@+id/departureTimeTextView"
+        android:layout_alignLeft="@+id/departureTimeTextView"
+        android:layout_marginTop="20dp"
+        android:text="@string/organization_arrival_tag_cz"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@+id/departureTimeTextView" />
+
+    <TextView
+        android:id="@+id/arrivalPlaceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTextView"
+        android:layout_alignStart="@+id/arrivalTextView"
+        android:layout_alignLeft="@+id/arrivalTextView"
+        android:layout_marginTop="20dp"
+        android:text="@string/organization_arrival_place_tag_cz"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@+id/arrivalTextView" />
+
+    <TextView
+        android:id="@+id/arrivalTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalPlaceTextView"
+        android:layout_alignStart="@+id/arrivalPlaceTextView"
+        android:layout_alignLeft="@id/arrivalPlaceTextView"
+        android:layout_marginTop="10dp"
+        android:text="@string/organization_arrival_time_tag_cz"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@+id/arrivalPlaceTextView" />
+
+    <TextView
+        android:id="@+id/arrivalPlaceValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTextView"
+        android:layout_alignTop="@+id/arrivalPlaceTextView"
+        android:layout_alignEnd="@+id/departureTimeValueTextView"
+        android:layout_alignRight="@+id/departureTimeValueTextView"
+        android:text="@string/unset"
+        app:layout_constraintBottom_toBottomOf="@+id/arrivalPlaceTextView"
+        app:layout_constraintEnd_toEndOf="@+id/departurePlaceValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/arrivalPlaceTextView" />
+
+    <TextView
+        android:id="@+id/arrivalTimeValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/arrivalTimeTextView"
+        android:layout_alignEnd="@+id/arrivalPlaceValueTextView"
+        android:layout_alignRight="@+id/arrivalPlaceValueTextView"
+        android:text="@string/unset"
+        app:layout_constraintBottom_toBottomOf="@+id/arrivalTimeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/departurePlaceValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/arrivalTimeTextView" />
+
+    <TextView
+        android:id="@+id/adressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arrivalTimeTextView"
+        android:layout_alignStart="@+id/arrivalTimeTextView"
+        android:layout_alignLeft="@+id/arrivalTimeTextView"
+        android:layout_marginTop="20dp"
+        android:text="@string/organization_camp_address_tag_cz"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView"
+        app:layout_constraintTop_toBottomOf="@+id/arrivalTimeTextView" />
+
+    <TextView
+        android:id="@+id/campAdressValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adressTextView"
+        android:layout_alignStart="@+id/adressTextView"
+        android:layout_alignLeft="@+id/adressTextView"
+        android:layout_marginTop="20dp"
+        android:text="@string/unset"
+        app:layout_constraintStart_toStartOf="@+id/adressTextView"
+        app:layout_constraintTop_toBottomOf="@+id/adressTextView" />
+
+    <TextView
+        android:id="@+id/setNotificationTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/campAdressValueTextView"
+        android:layout_alignLeft="@+id/campAdressValueTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/want_notification_text_cz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/setNotificationButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/departureTextView" />
+
+    <Button
+        style="@style/Borderless.Button"
+        android:id="@+id/setNotificationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/want_notification_button_cz"
+        app:layout_constraintBottom_toBottomOf="@+id/setNotificationTextView"
+        app:layout_constraintEnd_toEndOf="@+id/departurePlaceValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/setNotificationTextView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

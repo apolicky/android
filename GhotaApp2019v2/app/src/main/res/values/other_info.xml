@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="other_info_links">Linky v textu</string>
-    <string name="other_info_link_pattern">\\[[^\\]]+\\]\\([^\\)]+\\)</string>
-</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="other_info_links">Linky v textu</string>
+    <string name="other_info_link_pattern">\\[[^\\]]+\\]\\([^\\)]+\\)</string>
+    <string name="other_info_text">other_info_text</string>
+    <string name="create_other_title_text_cz">Ostatní informace</string>
+    <string name="create_other_info_hint_cz">Napište další informace ohledně táboru</string>
+    <string name="create_other_info_text_cz">Zde můžete napsat další informace o vašem táboře. Chcete-li vložit link na webovou stránku, použijte prosím tento formát:\
+    &quot;[nazev_ktery_se_doplni_v_textu](webova_stranka_na_kterou_se_odkazujete)&quot;</string>
+
+    <string name="create_other_info_no_link_found_cz">V textu nebyl nalezen žádný odkaz. Souhlasí-li to, pokračujte dále.</string>
+    <string name="create_other_info_x_links_found_cz"> odkazů nalezeno. Souhlasí-li to, pokračujte dále.</string>
+</resources>

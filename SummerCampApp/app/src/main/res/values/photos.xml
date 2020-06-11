@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="photos_content_description">Obrázek</string>
+    <string name="photos_href_pattern">&lt;a href=\"[^\.]+\.\\p{Alpha}+\"&gt;</string>
+    <string name="photos_web_directory">photo_directory</string>
+    <string name="create_photos_title_text_cz">Online fotky</string>
+    <string name="create_photos_info_text_cz">Napište adresu webové stránky, na které jsou uloženy linky na vaše online fotografie. Stránka by tedy měla mít &lt;a href=&quot;...&quot;&gt; značku, kde &quot;...&quot; jsou relativní cesta k fotogtafii.</string>
+    <string name="create_photos_tag_text_cz">Adresa webové stránky</string>
+    <string name="create_photos_address_hint_cz">www.muj_web.cz/cesta_k_fotografiim</string>
+
+    <string name="create_photos_no_webpage_cz">Není vložena žádná webová adresa. Je-li to v pořádku, pokračujte dále.</string>
+    <string name="create_photos_webpage_does_not_exist_cz"> - adresa neexistuje nebo nefunguje připojení k internetu.</string>
+
+</resources>

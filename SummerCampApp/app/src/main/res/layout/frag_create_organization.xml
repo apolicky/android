@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/createOrganizationCheckButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/create_organization_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_organization_title_cz"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_organization_info_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/create_organization_info_text_cz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_organization_title_text_view" />
+
+            <TextView
+                android:id="@+id/create_departure_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_departure_date_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+            <TextView
+                android:id="@+id/create_departure_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_departure_time_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+
+            <TextView
+                android:id="@+id/create_arrival_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_arrival_date_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/departureGeoTextLayout" />
+
+            <TextView
+                android:id="@+id/create_arrival_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_arrival_time_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+
+            <TextView
+                android:id="@+id/departure_place_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/organization_departure_place_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+
+            <TextView
+                android:id="@+id/create_camp_address_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_camp_address_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/arrivalGeoTextLayout" />
+
+            <TextView
+                android:id="@+id/create_camp_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_app_title_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_organization_info_text_view" />
+
+
+            <TextView
+                android:id="@+id/departure_geo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/organization_departure_place_geo_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/departurePlaceTextLayout" />
+
+            <TextView
+                android:id="@+id/arrival_place_tag_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/organization_arrival_place_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+            <TextView
+                android:id="@+id/arrival_geo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/organization_arrival_place_geo_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/arrivalPlaceTextLayout" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nextFocusDown="@id/textInputLayout4"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@id/create_camp_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_camp_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_app_title_hint_cz"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:nextFocusDown="@id/textInputLayout4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="10dp"
+                android:nextFocusDown="@id/textInputLayout5"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_departure_date_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_departure_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_date_hint"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nextFocusDown="@id/textInputLayout6"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_departure_time_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_departure_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_time_hint"
+                    android:inputType="time" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departurePlaceTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/departure_place_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_organization_departure_place_hint_cz" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nextFocusDown="@id/textInputLayout7"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_arrival_date_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_arrival_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_date_hint"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nextFocusDown="@id/textInputLayout8"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_arrival_time_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_arrival_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_time_hint"
+                    android:inputType="time" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:errorEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_camp_address_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_camp_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|top"
+                    android:hint="@string/create_camp_address_hint_cz"
+                    android:inputType="textMultiLine|textPostalAddress"
+                    android:singleLine="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departureGeoTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/departure_geo_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_organization_geo_coords_hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/arrivalPlaceTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/arrival_place_tag_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_organization_arrival_place_hint_cz" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/arrivalGeoTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_organization_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_organization_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/arrival_geo_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_organization_geo_coords_hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/createOrganizationCheckButton"
+        style="@style/Dark.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/check_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/createOganizationExitButton"
+        style="@style/Borderless.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/exit_button_text"
+        app:layout_constraintBottom_toBottomOf="@+id/createOrganizationCheckButton"
+        app:layout_constraintEnd_toStartOf="@+id/createOrganizationCheckButton"
+        app:layout_constraintTop_toTopOf="@+id/createOrganizationCheckButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

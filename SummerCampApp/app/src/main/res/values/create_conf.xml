@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_create_conf">Tvorba konfigurace</string>
+    <string name="tab_create_developer">Vývojář</string>
+    <string name="tab_create_organization">Organizační</string>
+    <string name="tab_create_contacts">Kontakty</string>
+    <string name="tab_create_others">Ostatní informace</string>
+    <string name="tab_create_photos">Online Fotky</string>
+</resources>

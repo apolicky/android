@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- tags -->
+
+    <string name="organization_departure_tag_cz">Odjezd</string>
+    <string name="organization_departure_place_tag_cz">Místo odjezdu</string>
+    <string name="organization_departure_time_tag_cz">Čas odjedzu</string>
+    <string name="organization_departure_place_geo_tag_cz">Souřadnice místa odjezdu</string>
+
+    <string name="organization_arrival_tag_cz">Příjezd</string>
+    <string name="organization_arrival_place_tag_cz">Místo příjezdu</string>
+    <string name="organization_arrival_time_tag_cz">Čas příjezdu</string>
+    <string name="organization_arrival_place_geo_tag_cz">Souřadnice místa příjezdu</string>
+
+    <string name="organization_camp_address_tag_cz">ADRESA TÁBOŘIŠTĚ</string>
+
+    <!--  json resource keys  -->
+
+    <string name="organization_departure_date">departure_date</string>
+    <string name="organization_departure_time">departure_time</string>
+    <string name="organization_departure_place">departure_place</string>
+
+    <string name="organization_arrival_date">arrival_date</string>
+    <string name="organization_arrival_time">arrival_time</string>
+    <string name="organization_arrival_place">arrival_place</string>
+
+    <string name="organization_camp_address_value">camp_address_value</string>
+
+    <string name="organization_arrival_geo_coords">arrival_geo_location</string>
+    <string name="organization_departure_geo_coords">departure_geo_location</string>
+
+    <string name="create_organization_info_text_cz">Vepište informace o plánovaném táboře. Dodržte formát v nápovědě.</string>
+
+    <string name="create_organization_fill_in_name_cz">Napište jméno</string>
+    <string name="create_organization_wrong_date_fmt_cz">Špatný formát data</string>
+    <string name="create_organization_wrong_time_fmt_cz">Špatný formát času</string>
+    <string name="create_organization_wrong_geo_fmt_cz">Špatný formát souřadnic</string>
+    <string name="create_organization_departure_place_hint_cz">Napište adresu místa odjezdu</string>
+    <string name="create_organization_arrival_place_hint_cz">Napište adresu místa příjezdu</string>
+    <string name="create_organization_geo_coords_hint">Nepovinné: (-)xxx.xxxxx, (-)yyy.yyyyy</string>
+
+
+</resources>

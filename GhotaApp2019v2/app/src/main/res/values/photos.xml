@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="photos_content_description">Obrázek</string>
-    <string name="photos_href_pattern">&lt;a href="[^\\.]\\.\\p{Aplha}+"&gt;</string>
-    <string name="photos_web_directory">photo_directory</string>
-
-</resources>

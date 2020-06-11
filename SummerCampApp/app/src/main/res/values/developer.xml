@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_developer_info_cz">Napište svoje údaje</string>
+    <string name="create_developer_email_tag_cz">Emailová adresa</string>
+    <string name="create_developer_email_hint_cz">clovek@taborovy_web.cz</string>
+    <string name="create_developer_invalid_mail_cz">Špatný formát</string>
+    <string name="create_developer_fill_in_email_cz">Napište svůj email</string>
+</resources>

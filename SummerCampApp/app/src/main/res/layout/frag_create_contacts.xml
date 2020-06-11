@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkContactsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/contactsPassButton"
+                style="@style/Borderless.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip_button_text"
+                app:layout_constraintBottom_toBottomOf="@+id/create_contacts_title_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toTopOf="@+id/create_contacts_title_text_view" />
+
+            <TextView
+                android:id="@+id/create_contacts_title_text_view"
+                style="@style/Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contacts_title_cz"
+                app:layout_constraintEnd_toStartOf="@+id/contactsPassButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_contact_info_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/create_contact_info_cz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/create_contacts_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contacts_title_text_view" />
+
+
+            <TextView
+                android:id="@+id/create_contact1_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contact1_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact_info_text_view" />
+
+            <TextView
+                android:id="@+id/create_contact3_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contact3_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/contact2"
+                app:layout_constraintTop_toBottomOf="@+id/contact2" />
+
+            <TextView
+                android:id="@+id/create_contact2_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contact2_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/contact1"
+                app:layout_constraintTop_toBottomOf="@+id/contact1" />
+
+            <TextView
+                android:id="@+id/create_contact4_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contact4_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/contact3"
+                app:layout_constraintTop_toBottomOf="@+id/contact3" />
+
+            <TextView
+                android:id="@+id/create_contact5_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_contact5_tag_cz"
+                app:layout_constraintStart_toStartOf="@+id/contact4"
+                app:layout_constraintTop_toBottomOf="@+id/contact4" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contactName1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_contact1_name_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact1_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:layout_constraintEnd_toEndOf="@+id/contactName1"
+                app:layout_constraintStart_toStartOf="@+id/contactName1"
+                app:layout_constraintTop_toBottomOf="@+id/contactName1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact1_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_value_hint"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contactName3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact3_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:layout_constraintEnd_toEndOf="@+id/contactName3"
+                app:layout_constraintStart_toStartOf="@+id/contactName3"
+                app:layout_constraintTop_toBottomOf="@+id/contactName3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact3_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_value_hint"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contactName2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact2_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:layout_constraintEnd_toEndOf="@+id/contactName2"
+                app:layout_constraintStart_toStartOf="@+id/contactName2"
+                app:layout_constraintTop_toBottomOf="@+id/contactName2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact2_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_value_hint"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contactName4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact4_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:layout_constraintEnd_toEndOf="@+id/contactName4"
+                app:layout_constraintStart_toStartOf="@+id/contactName4"
+                app:layout_constraintTop_toBottomOf="@+id/contactName4">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact4_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_value_hint"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contactName5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/create_contact_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_contact_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_contact5_name_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_name_hint_cz"
+                    android:inputType="textPersonName|text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/contactName5"
+                app:layout_constraintStart_toStartOf="@+id/contactName5"
+                app:layout_constraintTop_toBottomOf="@+id/contactName5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_contact5_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_contact_value_hint"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/checkContactsButton"
+        style="@style/Dark.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:text="@string/check_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <Button
+        android:id="@+id/contactsBackButton"
+        style="@style/Borderless.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/back_button_text"
+        app:layout_constraintBottom_toBottomOf="@+id/checkContactsButton"
+        app:layout_constraintEnd_toStartOf="@+id/checkContactsButton"
+        app:layout_constraintTop_toTopOf="@+id/checkContactsButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

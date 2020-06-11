@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Summer Camp App</string>
+
+    <string name="unset">Unset</string>
+
+    <!-- tabs -->
+    <string name="app_title">app_title</string>
+    <string name="tab_organization">Organizace</string>
+    <string name="tab_contacts">Kontakty</string>
+    <string name="tab_others">Ostatní Informace</string>
+    <string name="tab_online_photos">Online Fotky</string>
+
+    <string name="tabs_used">tabs_used</string>
+
+
+    <string name="want_notification_text_cz">Chcete upozornění o odjezdu/příjezdu?</string>
+    <string name="want_notification_button_cz">Upozornit</string>
+
+    <!-- contacts -->
+
+    <string name="contacts">contacts</string>
+    <string name="contacts_call_tag_cz">Volat</string>
+    <string name="contacts_recommendation">Volejte pouze v případě nouze nebo tak :-)</string>
+
+    <!-- Filenames -->
+
+    <string name="notification_indicator_file">notificationindicator</string>
+    <string name="conf_url">https://github.com/apolicky/android/tree/master/SummerCampConfs</string>
+    <string name="conf_contains">href=\"/apolicky/android/blob/master/SummerCampConfs/</string>
+    <string name="conf_contains_inner">/apolicky/android/</string>
+    <string name="git_raw_pref">https://raw.githubusercontent.com</string>
+
+    <string name="conf_filename">config.xml</string>
+    <string name="conf_filename_json">config.json</string>
+    <string name="last_used_conf">last_used_conf</string>
+
+    <!--  Sync  -->
+
+    <string name="sync_app">Synchronizovat</string>
+    <string name="manage_configurations">Správa konfigurací</string>
+    <string name="refresh_config_message">Pro plnou změnu může být potřeba synchronizovat aplikaci.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

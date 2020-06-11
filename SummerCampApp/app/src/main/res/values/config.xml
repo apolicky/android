@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_current_tag_cz">Aktuální konfigurace: </string>
+    <string name="config_author_tag_cz">Autor konfigurace: </string>
+    <string name="config_available_ones_tag_cz">Dostupné konfigurace</string>
+    <string name="config_download_btn_text">Stáhnout</string>
+    <string name="config_delete_btn_text">Smazat</string>
+    <string name="config_refresh_btn_text">Nahrát</string>
+    <string name="config_reload_btn_text">Aktualizovat</string>
+    <string name="config_cant_see_yours_text">Nevidíte svou konfiguraci?</string>
+    <string name="config_create_new_btn_text">Vytvořit</string>
+
+    <string name="config_name">conf_name</string>
+    <string name="config_author">conf_author</string>
+    <string name="author_mail">author_mail</string>
+
+    <string name="skip_button_text">Přeskočit</string>
+    <string name="check_button_text">Zkontrolovat</string>
+    <string name="back_button_text">Zpět</string>
+    <string name="exit_button_text">Zahodit</string>
+    <string name="send_button_text">Odevzdat</string>
+
+    <string name="email_target">taborove.konfigurace@apolicky.cz</string>
+    <string name="config_could_not_be_loaded_cz">Konfiguraci nebylo možné nahrát.</string>
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/create_photos_skip_button"
+                style="@style/Borderless.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip_button_text"
+                app:layout_constraintBottom_toBottomOf="@+id/create_photos_title_text_view"
+                app:layout_constraintEnd_toEndOf="@+id/create_photos_info_text_view"
+                app:layout_constraintTop_toTopOf="@+id/create_photos_title_text_view" />
+
+            <TextView
+                android:id="@+id/create_photos_info_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/create_photos_info_text_cz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/create_photos_title_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_photos_title_text_view" />
+
+            <TextView
+                android:id="@+id/create_photos_tag_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_photos_tag_text_cz"
+                app:layout_constraintStart_toStartOf="@+id/create_photos_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_photos_info_text_view" />
+
+
+            <TextView
+                android:id="@+id/create_photos_title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/create_photos_title_text_cz"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/create_photos_skip_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/photos_text_input_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:nextFocusDown="@id/create_photos_check_button"
+                app:errorEnabled="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/create_photos_info_text_view"
+                app:layout_constraintStart_toStartOf="@+id/create_photos_tag_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/create_photos_tag_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ins_other_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/create_photos_address_hint_cz"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:nextFocusDown="@id/create_photos_check_button" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/create_photos_check_button"
+        style="@style/Dark.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/check_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/create_photos_exit_button"
+        style="@style/Borderless.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/back_button_text"
+        app:layout_constraintBottom_toBottomOf="@+id/create_photos_check_button"
+        app:layout_constraintEnd_toStartOf="@+id/create_photos_check_button"
+        app:layout_constraintTop_toTopOf="@+id/create_photos_check_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
