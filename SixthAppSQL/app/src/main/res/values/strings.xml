@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">SixthAppSQL</string>
-    <string name="getDataButtonText">GET DATA</string>
-    <string name="progressTextViewText">Progress</string>
-</resources>
